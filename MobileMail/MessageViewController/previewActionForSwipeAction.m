@@ -76,13 +76,13 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
         case 0:
             goto 0x10009c364;
         case 1:
-            goto 0x10009bd4c;
+            goto L2;
         case 2:
             goto 0x10009be44;
         case 3:
             goto 0x10009be88;
         case 4:
-            goto 0x10009bd4c;
+            goto L2;
         case 5:
             goto 0x10009becc;
     }
