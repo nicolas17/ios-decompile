@@ -25,7 +25,14 @@
     x8 = x19 - 5 // _shiftedAction = action - 5
     if (x8 > 0) goto L1;
 
-    // TODO; involves jumptable
+/* TODO; involves jumptable
+000000010009bd34         movz       x0, #0x0
+000000010009bd38         adr        x9, #0x10009c384
+000000010009bd3c         nop
+000000010009bd40         ldrsw      x10, [x9, x19, lsl #2]
+000000010009bd44         add        x9, x10, x9
+000000010009bd48         br         x9
+*/
 
     L1: // 0x10009bd4c
     if (x8 > 1) goto L2;
