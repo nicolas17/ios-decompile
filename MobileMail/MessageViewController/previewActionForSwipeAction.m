@@ -11,10 +11,12 @@
                                     withMessage: (id)message
                                        forSwipe: (BOOL)swipe
 {
-    x20 = swipe
-    x21 = message
-    x19 = action
+    /*
     x22 = self
+    x19 = action
+    x21 = message
+    x20 = swipe
+    */
 
     x25 = [self presentingViewController];
     if (x25 == 0) {
@@ -46,9 +48,9 @@
     var_11c = 0x00000000; // 32-bit, wzr
     var_120 = 0x10009c82c; // 64-bit
     var_128 = 0x1001fe1e0; // 64-bit
-    var_148 = w20; // 8-bit
-    var_130 = x22; // both 64-bit; these come from a STP that I'm not sure about
-    var_138 = x21;
+    var_148 = swipe; // 8-bit
+    var_130 = self; // both 64-bit; these come from a STP that I'm not sure about
+    var_138 = message;
     var_140 = x25;
     x27 = &var_110;
     w26 = 0x2; // orr w26, wzr, #0x2
