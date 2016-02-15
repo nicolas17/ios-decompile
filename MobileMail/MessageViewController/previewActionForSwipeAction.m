@@ -7,6 +7,15 @@
 
 #include <UIKit/UIKit.h>
 
+enum BlockLiteralFlags {
+  BLOCK_HAS_COPY_DISPOSE =  (1 << 25),
+  BLOCK_HAS_CXX_OBJ =       (1 << 26),
+  BLOCK_IS_GLOBAL =         (1 << 28),
+  BLOCK_USE_STRET =         (1 << 29),
+  BLOCK_HAS_SIGNATURE  =    (1 << 30),
+  BLOCK_HAS_EXTENDED_LAYOUT = (1 << 31)
+};
+
 struct Block_literal_1 {
     void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
     int flags;
@@ -40,7 +49,7 @@ struct Block_literal_1 {
         x25 = [[UIApplication sharedApplication] sceneController];
     }
 
-    w28 = 0xc2000000 // from "movz w28, #0xc200, lsl #16"; I don't know if that's correct
+    reusedBlockFlags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_SIGNATURE | BLOCK_HAS_EXTENDED_LAYOUT;
     if (action > 5) goto L1;
 
 /* TODO; involves jumptable
@@ -61,7 +70,7 @@ struct Block_literal_1 {
     w24 = 0;
     Block_literal_1 myBlock;
     myBlock.isa = &_NSConcreteStackBlock;
-    myBlock.flags = w28;
+    myBlock.flags = reusedBlockFlags;
     myBlock.reserved = 0;
     myBlock.invoke = 0x10009c82c;
     myBlock.descriptor = 0x1001fe1e0;
