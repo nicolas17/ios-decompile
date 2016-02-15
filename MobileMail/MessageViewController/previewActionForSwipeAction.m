@@ -72,8 +72,20 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
     if (action > 5) goto L1;
 
     x0 = 0;
-    x9 = jumptable1 + jumptable1[action];
-    goto x9;
+    switch (action) {
+        case 0:
+            goto 0x10009c364;
+        case 1:
+            goto 0x10009bd4c;
+        case 2:
+            goto 0x10009be44;
+        case 3:
+            goto 0x10009be88;
+        case 4:
+            goto 0x10009bd4c;
+        case 5:
+            goto 0x10009becc;
+    }
 
     L1: // 0x10009bd4c
     if (action > 6) goto L2;
