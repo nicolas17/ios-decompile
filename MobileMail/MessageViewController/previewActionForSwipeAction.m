@@ -56,9 +56,7 @@ int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
     if (action > 5) goto L1;
 
     x0 = 0;
-    x9 = jumptable1; // 0x10009c384
-    x10 = *(x9 + (action << 2));
-    x9 += x10;
+    x9 = jumptable1 + jumptable1[action];
     goto x9;
 
     L1: // 0x10009bd4c
