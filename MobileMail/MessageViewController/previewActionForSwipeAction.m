@@ -46,8 +46,11 @@ static struct Block_descriptor block_descriptor_1 = {
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
-// at 0x10009c384, which is important
+// at 0x10009c384
 int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
+
+// at 0x10009c39c
+int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0x2a4 };
 
 -(UIPreviewAction*)_previewActionForSwipeAction: (unsigned long long)action
                                     withMessage: (id)message
@@ -98,5 +101,6 @@ int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
     x8 = action - 4;
     if (x8 > 7) goto jump_B_124;
 
-
+    // 0x10009bdf4
+    goto jumptable2 + jumptable2[x8]; // note x8 is action - 4
 }
