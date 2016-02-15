@@ -38,6 +38,14 @@ struct Block_literal_1 {
     BOOL captured_swipe;
 };
 
+static struct Block_descriptor block_descriptor_1 = {
+    0,
+    sizeof(Block_literal_1),
+    0x000000010009cb10,
+    0x000000010009cb5c,
+    "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
+};
+
 // at 0x10009c384, which is important
 int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
 
@@ -76,7 +84,7 @@ int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
     myBlock.flags = reusedBlockFlags;
     myBlock.reserved = 0;
     myBlock.invoke = 0x10009c82c;
-    myBlock.descriptor = 0x1001fe1e0;
+    myBlock.descriptor = block_descriptor_1;
     myBlock.captured_self = self;
     myBlock.captured_message = message;
     myBlock.captured_xxx = x25;
