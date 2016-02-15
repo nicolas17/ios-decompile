@@ -39,8 +39,21 @@
 
     //0x10009bd54
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_ARCHIVE" value:"" table:"Main-OrbHW"];
+
+    // This is initializing a block_literal struct
     w24 = 0;
-    // TODO block stuff
+    var_110 = _NSConcreteStackBlock; //64-bit
+    var_118 = w28; // 32-bit
+    var_11c = 0x00000000; // 32-bit, wzr
+    var_120 = 0x10009c82c; // 64-bit
+    var_128 = 0x1001fe1e0; // 64-bit
+    var_148 = w20; // 8-bit
+    var_130 = x22; // both 64-bit; these come from a STP that I'm not sure about
+    var_138 = x21;
+    var_140 = x25;
+    x27 = &var_110;
+    w26 = 0x2; // orr w26, wzr, #0x2
+    goto jump_A_124;
 
     L2: // 0x10009bdd8
 }
