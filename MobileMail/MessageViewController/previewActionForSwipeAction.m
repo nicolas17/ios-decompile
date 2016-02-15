@@ -22,8 +22,7 @@
     }
 
     w28 = 0xc2000000 // from "movz w28, #0xc200, lsl #16"; I don't know if that's correct
-    x8 = x19 - 5 // _shiftedAction = action - 5
-    if (x8 > 0) goto L1; // if (action > 5)
+    if (action > 5) goto L1;
 
 /* TODO; involves jumptable
 000000010009bd34         movz       x0, #0x0
@@ -35,7 +34,7 @@
 */
 
     L1: // 0x10009bd4c
-    if (x8 > 1) goto L2; // if (action > 6)
+    if (action > 6) goto L2;
 
     //0x10009bd54
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_ARCHIVE" value:"" table:"Main-OrbHW"];
