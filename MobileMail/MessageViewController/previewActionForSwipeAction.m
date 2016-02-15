@@ -91,7 +91,12 @@ int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
     myBlock.captured_swipe = swipe; // 8-bit
     x27 = &myBlock;
     w26 = 0x2; // orr w26, wzr, #0x2
-    goto jump_A_124;
+    goto jump_B_124;
 
     L2: // 0x10009bdd8
+    x23 = w24 = x26 = x27 = 0;
+    x8 = action - 4;
+    if (x8 > 7) goto jump_B_124;
+
+
 }
