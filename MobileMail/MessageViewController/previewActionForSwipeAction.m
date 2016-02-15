@@ -37,7 +37,10 @@
     L1: // 0x10009bd4c
     if (x8 > 1) goto L2; // if (action > 6)
 
-    // TODO
+    //0x10009bd54
+    x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_ARCHIVE" value:"" table:"Main-OrbHW"];
+    w24 = 0;
+    // TODO block stuff
 
     L2: // 0x10009bdd8
 }
