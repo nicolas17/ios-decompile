@@ -31,6 +31,10 @@ struct Block_literal_1 {
         const char *signature;                         // IFF (1<<30)
     } *descriptor;
     // imported variables
+    id captured_self;
+    id captured_message;
+    id captured_xxx;
+    BOOL captured_swipe;
 };
 
 // at 0x10009c384, which is important
@@ -72,10 +76,10 @@ int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
     myBlock.reserved = 0;
     myBlock.invoke = 0x10009c82c;
     myBlock.descriptor = 0x1001fe1e0;
-    myBlock.imported1 = self;
-    myBlock.imported2 = message;
-    myBlock.imported3 = x25;
-    myBlock.imported4 = swipe; // 8-bit
+    myBlock.captured_self = self;
+    myBlock.captured_message = message;
+    myBlock.captured_xxx = x25;
+    myBlock.captured_swipe = swipe; // 8-bit
     x27 = &myBlock;
     w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_A_124;
