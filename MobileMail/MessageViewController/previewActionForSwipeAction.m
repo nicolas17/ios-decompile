@@ -15,21 +15,22 @@ enum BlockLiteralFlags {
   BLOCK_HAS_SIGNATURE  =    (1 << 30),
   BLOCK_HAS_EXTENDED_LAYOUT = (1 << 31)
 };
+struct Block_descriptor {
+    unsigned long int reserved;     // NULL
+    unsigned long int size;         // sizeof(struct Block_literal_1)
+    // optional helper functions
+    void (*copy_helper)(void *dst, void *src);     // IFF (1<<25)
+    void (*dispose_helper)(void *src);             // IFF (1<<25)
+    // required ABI.2010.3.16
+    const char *signature;                         // IFF (1<<30)
+};
 
 struct Block_literal_1 {
     void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
     int flags;
     int reserved;
     void (*invoke)(void *, ...);
-    struct Block_descriptor_1 {
-        unsigned long int reserved;     // NULL
-        unsigned long int size;         // sizeof(struct Block_literal_1)
-        // optional helper functions
-        void (*copy_helper)(void *dst, void *src);     // IFF (1<<25)
-        void (*dispose_helper)(void *src);             // IFF (1<<25)
-        // required ABI.2010.3.16
-        const char *signature;                         // IFF (1<<30)
-    } *descriptor;
+    struct Block_descriptor *descriptor;
     // imported variables
     id captured_self;
     id captured_message;
