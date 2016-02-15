@@ -33,6 +33,9 @@ struct Block_literal_1 {
     // imported variables
 };
 
+// at 0x10009c384, which is important
+int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
+
 -(UIPreviewAction*)_previewActionForSwipeAction: (unsigned long long)action
                                     withMessage: (id)message
                                        forSwipe: (BOOL)swipe
@@ -52,14 +55,11 @@ struct Block_literal_1 {
     reusedBlockFlags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_SIGNATURE | BLOCK_HAS_EXTENDED_LAYOUT;
     if (action > 5) goto L1;
 
-/* TODO; involves jumptable
-000000010009bd34         movz       x0, #0x0
-000000010009bd38         adr        x9, #0x10009c384
-000000010009bd3c         nop
-000000010009bd40         ldrsw      x10, [x9, x19, lsl #2]
-000000010009bd44         add        x9, x10, x9
-000000010009bd48         br         x9
-*/
+    x0 = 0;
+    x9 = jumptable1; // 0x10009c384
+    x10 = *(x9 + (action << 2));
+    x9 += x10;
+    goto x9;
 
     L1: // 0x10009bd4c
     if (action > 6) goto L2;
