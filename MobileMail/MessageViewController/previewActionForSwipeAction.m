@@ -18,7 +18,7 @@
 
     x25 = [self presentingViewController];
     if (x25 == 0) {
-        x25 = [[UIApplication] sharedApplication] sceneController];
+        x25 = [[UIApplication sharedApplication] sceneController];
     }
 
     w28 = 0xc2000000 // from "movz w28, #0xc200, lsl #16"; I don't know if that's correct
