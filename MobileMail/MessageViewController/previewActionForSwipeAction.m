@@ -231,14 +231,11 @@ jump_A_5: // 0x10009becc
     x23 = objc_msgSend;
 
     x24 = 0;
-    x8 = &_NSConcreteStackBlock;
-    sp[0x150] = x8;
+    sp[0x150] = &_NSConcreteStackBlock;
     sp[0x158] = w28;
     sp[0x15c] = 0;
-    x8 = 0x10009c4bc;
-    sp[0x160] = x8;
-    x8 = 0x1001fe180;
-    sp[0x168] = x8;
+    sp[0x160] = 0x10009c4bc;
+    sp[0x168] = 0x1001fe180;
     sp[0x188] = w20; // byte
     sp[0x189] = w26; // byte
     sp[0x170] = x22;
