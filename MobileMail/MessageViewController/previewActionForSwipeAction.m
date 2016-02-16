@@ -221,4 +221,30 @@ jump_A_5: // 0x10009becc
     block2.captured_message = message;
     x27 = &block2;
     goto jump_B_124;
+
+    // 0x10009bf7c
+    x2 = @"PREVIEW_SWIPE_DELETE";
+
+    // 0x10009bf84
+    x3 = @"";
+    x4 = @"Main-OrbHW";
+    x23 = objc_msgSend;
+
+    x24 = 0;
+    x8 = &_NSConcreteStackBlock;
+    fp[-0xf0] = x8;
+    fp[-0xe8] = w28;
+    fp[-0xe8+4] = 0;
+    x8 = 0x10009c4bc;
+    fp[-0xe0] = x8;
+    x8 = 0x1001fe180;
+    fp[-0xd8] = x8;
+    fp[-0xb8] = w20; // byte
+    fp[-0xb7] = w26; // byte
+    fp[-0xd0] = x22;
+    fp[-0xd0+8] = x21;
+    fp[-0xc0] = x25;
+    x27 = fp - 0xf0;
+    w26 = 0x2; // orr w26, wzr, #0x2
+    goto jump_B_124;
 }
