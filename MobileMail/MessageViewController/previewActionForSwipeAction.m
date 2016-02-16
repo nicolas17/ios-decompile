@@ -267,4 +267,15 @@ jump_A_5: // 0x10009becc
     x27 = &block3;
     w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
+
+jump_B_3: // 0x10009bfe4
+    x23 = [message conversationFlags];
+    x25 = x23 & 1; //potentially useless?
+    x0 = [NSBundle mainBundle];
+    x1 = @selector(localizedStringForKey:value:table:);
+    if (w23 & 1 != 0) goto 0x10009c238;
+
+    x2 = @"NOTIFY_ME_ELLIPSIS";
+    goto 0x10009c240;
+
 }
