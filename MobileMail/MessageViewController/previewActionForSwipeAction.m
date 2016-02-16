@@ -278,4 +278,17 @@ jump_B_3: // 0x10009bfe4
     x2 = @"NOTIFY_ME_ELLIPSIS";
     goto 0x10009c240;
 
+jump_B_5: // 0x10009c028
+    x23 = [message canReplyAll];
+    x0 = [NSBundle mainBundle];
+    x1 = @selector(localizedStringForKey:value:table:);
+    if (w23 == 0) goto 0x10009c29c;
+
+    x2 = @"REPLY_ALL";
+    x3 = @"";
+    x4 = @"Main";
+    x23 = objc_msgSend(x0,x1,x2,x3,x4);
+    w8 = 0x1;
+    goto 0x10009c2c0;
+
 }
