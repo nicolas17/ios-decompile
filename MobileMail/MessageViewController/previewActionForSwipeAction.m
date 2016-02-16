@@ -68,6 +68,7 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
         x25 = [[UIApplication sharedApplication] sceneController];
     }
 
+    // reusedBlockFlags is in w28, apparently throughout the function
     reusedBlockFlags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_SIGNATURE | BLOCK_HAS_EXTENDED_LAYOUT;
     if (action > 5) goto L1;
 
@@ -193,7 +194,7 @@ jump_A_5: // 0x10009becc
     x8 = &_NSConcreteStackBlock;
     x9 = 0x10009c3bc;
     *(sp + 0x1c0) = x8;
-    *(sp + 0x1c8) = w28;
+    *(sp + 0x1c8) = reusedBlockFlags;
     *(sp + 0x1cc) = 0;
     x8 = 0x1001fe0f0; // descriptor?
     *(sp + 0x1d0) = x9;
