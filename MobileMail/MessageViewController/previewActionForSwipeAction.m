@@ -133,4 +133,77 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
         goto jump_B_7; // 0x10009c0f8
     }
 
+jump_B_0: // 0x10009be08
+    x0 = [NSBundle mainBundle];
+    x1 = @selector(localizedStringForKey:value:table:);
+    if (!swipe) goto 0x10009c1dc;
+
+    x2 = @"PREVIEW_SWIPE_MOVE";
+    x3 = @"";
+    x4 = @"Main-OrbHW";
+    goto 0x10009c1f4;
+
+jump_A_2: // 0x10009be44
+    x0 = [x21 messageFlags];
+    x24 = x0 & 0x1;
+    x0 = [NSBundle mainBundle];
+    x1 = @selector(localizedStringForKey:value:table:);
+    if (!swipe) goto 0x10009bf18;
+    if (!x24) goto 0x10009c16c;
+    x2 = @"PREVIEW_SWIPE_MARK_AS_UNREAD";
+    goto 0x10009c174;
+
+jump_A_3: // 0x10009be88
+    x23 = [x21 messageFlags];
+    x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
+
+    x0 = [NSBundle mainBundle];
+    x1 = @selector(localizedStringForKey:value:table:);
+    if (w23 & (1<<4) == 0) goto 0x10009bf28;
+
+    x2 = @"MARK_EMAIL_UNFLAGGED";
+
+    goto 0x10009bf30;
+
+jump_A_5: // 0x10009becc
+    x26 = [self->_mall deleteMovesToTrashForMessage: message];
+    x0 = [NSBundle mainBundle];
+    x1 = @selector(localizedStringForKey:value:table:);
+    if (w26 == 0) goto 0x10009bf7c;
+
+    // 0x10009bf0c
+    x2 = @"PREVIEW_SWIPE_TRASH";
+    goto 0x10009bf84;
+
+    // 0x10009bf18
+    if (x24 == 0) goto 0x10009c188;
+
+    // 0x1000bf1c
+    x2 = @"MARK_EMAIL_UNREAD";
+    goto 0x10009c190;
+
+    // 0x10009bf28
+    x2 = @"MARK_EMAIL_FLAGGED";
+
+    // 0x10009bf30
+    x3 = @"";
+    x4 = @"Main";
+    x23 = objc_msgSend(x0,x1,x2,x3,x4);
+    // ...continues...
+/*
+000000010009bf48         movz       x26, #0x0
+000000010009bf4c         adrp       x8, #0x1001f8000
+000000010009bf50         ldr        x8, [x8, #0xc78]                            ; imp___got___NSConcreteStackBlock,__NSConcreteStackBlock
+000000010009bf54         adr        x9, #0x10009c3bc
+000000010009bf58         nop        
+000000010009bf5c         stur       x8, [x29, #-0x80]
+000000010009bf60         stp        w28, wzr, [x29, #-0x78]
+000000010009bf64         adrp       x8, #0x1001fe000
+000000010009bf68         add        x8, x8, #0xf0                               ; 0x1001fe0f0
+000000010009bf6c         stp        x9, x8, [x29, #-0x70]
+000000010009bf70         stp        x22, x21, [x29, #-0x60]
+000000010009bf74         sub        x27, x29, #0x80
+000000010009bf78         b          jump_b_124
+                        ; endp
+*/
 }
