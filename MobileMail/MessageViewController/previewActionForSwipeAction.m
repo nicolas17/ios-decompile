@@ -60,6 +60,16 @@ struct Block_literal_3 {
     BOOL captured_swipe;
     BOOL captured_movesToTrash;
 };
+struct Block_literal_4 {
+    void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
+    int flags;
+    int reserved;
+    void (*invoke)(void *, ...);
+    struct Block_descriptor *descriptor;
+    // imported variables
+    id captured_self;
+    id captured_message;
+};
 
 // at 0x1001fe1e0
 static struct Block_descriptor block_descriptor_1 = {
@@ -85,6 +95,15 @@ static struct Block_descriptor block_descriptor_3 = {
     sizeof(Block_literal_3), // 0x3a
     0x000000010009c7a4,
     0x000000010009c7f0,
+    "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
+};
+
+// at 0x1001fe2a0
+static struct Block_descriptor block_descriptor_4 = {
+    0,
+    sizeof(Block_literal_4), // 0x30
+    0x000000010009ce10,
+    0x000000010009ce4c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -290,5 +309,20 @@ jump_B_5: // 0x10009c028
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
     w8 = 0x1;
     goto 0x10009c2c0;
+
+jump_B_6: // 0x10009c084
+    x23 = [[NSBundle mainBundle] localizedStringForKey: @"FORWARD" value:"" table:"Main"];
+    x26 = 0;
+    w24 = 0;
+    Block_literal_4 block4; // at sp+0x38
+    block4.isa = &_NSConcreteStackBlock;
+    block4.flags = reusedBlockFlags;
+    block4.reserved = 0;
+    block4.invoke = 0x10009cdf4;
+    block4.descriptor = &block_descriptor_4;
+    block4.captured_self = self;
+    block4.captured_message = message;
+    x27 = &block4;
+    goto jump_B_124;
 
 }
