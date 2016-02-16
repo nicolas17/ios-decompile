@@ -37,12 +37,32 @@ struct Block_literal_1 {
     id captured_xxx;
     BOOL captured_swipe;
 };
+struct Block_literal_2 {
+    void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
+    int flags;
+    int reserved;
+    void (*invoke)(void *, ...);
+    struct Block_descriptor *descriptor;
+    // imported variables
+    id captured_self;
+    id captured_message;
+};
 
+// at 0x1001fe1e0
 static struct Block_descriptor block_descriptor_1 = {
     0,
-    sizeof(Block_literal_1),
+    sizeof(Block_literal_1), // 0x39
     0x000000010009cb10,
     0x000000010009cb5c,
+    "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
+};
+
+// at 0x1001fe1e0
+static struct Block_descriptor block_descriptor_2 = {
+    0,
+    sizeof(Block_literal_2), // 0x30
+    0x000000010009c3d0,
+    0x000000010009c40c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -191,16 +211,14 @@ jump_A_5: // 0x10009becc
     x4 = @"Main";
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x26 = 0;
-    x8 = &_NSConcreteStackBlock;
-    x9 = 0x10009c3bc;
-    *(sp + 0x1c0) = x8;
-    *(sp + 0x1c8) = reusedBlockFlags;
-    *(sp + 0x1cc) = 0;
-    x8 = 0x1001fe0f0; // descriptor?
-    *(sp + 0x1d0) = x9;
-    *(sp + 0x1d8) = x8;
-    *(sp + 0x1e0) = x22;
-    *(sp + 0x1e8) = x21;
-    x27 = sp + 0x1c0;
-    goto jump_B_124
+    Block_literal_2 block2; // at sp+0x1c0
+    block2.isa = &_NSConcreteStackBlock;
+    block2.flags = reusedBlockFlags;
+    block2.reserved = 0;
+    block2.invoke = 0x10009c3bc;
+    block2.descriptor = &block_descriptor_2;
+    block2.captured_self = self;
+    block2.captured_message = message;
+    x27 = &block2;
+    goto jump_B_124;
 }
