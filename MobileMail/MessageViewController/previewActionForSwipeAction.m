@@ -107,6 +107,15 @@ static struct Block_descriptor block_descriptor_4 = {
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
+// at 0x1001fe2d0
+static struct Block_descriptor block_descriptor_5 = {
+    0,
+    sizeof(Block_literal_5), // 0x30
+    0x000000010009ce98,
+    0x000000010009ced4,
+    "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
+};
+
 // at 0x10009c384
 int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
 
@@ -325,4 +334,18 @@ jump_B_6: // 0x10009c084
     x27 = &block4;
     goto jump_B_124;
 
+jump_B_7: // 0x10009c0f8
+    x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_JUNK" value:"" table:"Main"];
+    x26 = 0;
+    w24 = 0;
+    Block_literal_4 block5; //at sp+0x8; sic! it has the same layout so I reuse struct #4
+    block5.isa = &_NSConcreteStackBlock;
+    block5.flags = w28;
+    block5.reserved = 0;
+    block5.invoke = 0x10009ce7c;
+    block5.descriptor = &block_descriptor_5;
+    block5.captured_self = self;
+    block5.captured_message = message;
+    x27 = &block5;
+    goto jump_B_124;
 }
