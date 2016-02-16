@@ -189,21 +189,18 @@ jump_A_5: // 0x10009becc
     x3 = @"";
     x4 = @"Main";
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
-    // ...continues...
-/*
-000000010009bf48         movz       x26, #0x0
-000000010009bf4c         adrp       x8, #0x1001f8000
-000000010009bf50         ldr        x8, [x8, #0xc78]                            ; imp___got___NSConcreteStackBlock,__NSConcreteStackBlock
-000000010009bf54         adr        x9, #0x10009c3bc
-000000010009bf58         nop        
-000000010009bf5c         stur       x8, [x29, #-0x80]
-000000010009bf60         stp        w28, wzr, [x29, #-0x78]
-000000010009bf64         adrp       x8, #0x1001fe000
-000000010009bf68         add        x8, x8, #0xf0                               ; 0x1001fe0f0
-000000010009bf6c         stp        x9, x8, [x29, #-0x70]
-000000010009bf70         stp        x22, x21, [x29, #-0x60]
-000000010009bf74         sub        x27, x29, #0x80
-000000010009bf78         b          jump_b_124
-                        ; endp
-*/
+    x26 = 0;
+    x8 = &_NSConcreteStackBlock;
+    x9 = 0x10009c3bc;
+    // fp is the original method-entry sp + 0x50, which is apparently equivalent to the current sp + 0x240
+    *(fp - 0x80) = x8;
+    *(fp - 0x78) = w28;
+    *(fp - 0x78+4) = 0;
+    x8 = 0x1001fe0f0; // descriptor?
+    *(fp - 0x70) = x9;
+    *(fp - 0x70 + 8) = x8;
+    *(fp - 0x60) = x22;
+    *(fp - 0x60 + 8) = x21;
+    x27 = fp - 0x80;
+    goto jump_B_124
 }
