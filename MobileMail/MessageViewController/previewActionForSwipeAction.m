@@ -192,15 +192,14 @@ jump_A_5: // 0x10009becc
     x26 = 0;
     x8 = &_NSConcreteStackBlock;
     x9 = 0x10009c3bc;
-    // fp is the original method-entry sp + 0x50, which is apparently equivalent to the current sp + 0x240
-    *(fp - 0x80) = x8;
-    *(fp - 0x78) = w28;
-    *(fp - 0x78+4) = 0;
+    *(sp + 0x1c0) = x8;
+    *(sp + 0x1c8) = w28;
+    *(sp + 0x1cc) = 0;
     x8 = 0x1001fe0f0; // descriptor?
-    *(fp - 0x70) = x9;
-    *(fp - 0x70 + 8) = x8;
-    *(fp - 0x60) = x22;
-    *(fp - 0x60 + 8) = x21;
-    x27 = fp - 0x80;
+    *(sp + 0x1d0) = x9;
+    *(sp + 0x1d8) = x8;
+    *(sp + 0x1e0) = x22;
+    *(sp + 0x1e8) = x21;
+    x27 = sp + 0x1c0;
     goto jump_B_124
 }
