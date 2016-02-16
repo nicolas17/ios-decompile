@@ -232,19 +232,19 @@ jump_A_5: // 0x10009becc
 
     x24 = 0;
     x8 = &_NSConcreteStackBlock;
-    fp[-0xf0] = x8;
-    fp[-0xe8] = w28;
-    fp[-0xe8+4] = 0;
+    sp[0x150] = x8;
+    sp[0x158] = w28;
+    sp[0x15c] = 0;
     x8 = 0x10009c4bc;
-    fp[-0xe0] = x8;
+    sp[0x160] = x8;
     x8 = 0x1001fe180;
-    fp[-0xd8] = x8;
-    fp[-0xb8] = w20; // byte
-    fp[-0xb7] = w26; // byte
-    fp[-0xd0] = x22;
-    fp[-0xd0+8] = x21;
-    fp[-0xc0] = x25;
-    x27 = fp - 0xf0;
+    sp[0x168] = x8;
+    sp[0x188] = w20; // byte
+    sp[0x189] = w26; // byte
+    sp[0x170] = x22;
+    sp[0x178] = x21;
+    sp[0x180] = x25;
+    x27 = sp + 0x150;
     w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
 }
