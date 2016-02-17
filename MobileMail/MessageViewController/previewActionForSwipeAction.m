@@ -71,6 +71,17 @@ struct Block_literal_msx {
     id captured_self;
     id captured_xxx;
 };
+struct Block_literal_smb {
+    void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
+    int flags;
+    int reserved;
+    void (*invoke)(void *, ...);
+    struct Block_descriptor *descriptor;
+    // imported variables
+    id captured_self;
+    id captured_message;
+    BOOL captured_boolUnk;
+};
 
 // at 0x1001fe1e0
 static struct Block_descriptor block_descriptor_1 = {
@@ -132,6 +143,15 @@ static struct Block_descriptor block_descriptor_7 = {
     sizeof(Block_literal_msx), // 0x38
     0x000000010009cc60,
     0x000000010009ccac,
+    "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
+};
+
+// at 0x1001fe240
+static struct Block_descriptor block_descriptor_8 = {
+    0,
+    sizeof(Block_literal_??), // 0x31
+    0x000000010009cd00,
+    0x000000010009cd3c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -320,10 +340,10 @@ jump_B_3: // 0x10009bfe4
     x25 = x23 & 1; //potentially useless?
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (w23 & 1 != 0) goto 0x10009c238;
+    if (w23 & 1 != 0) goto L13;
 
     x2 = @"NOTIFY_ME_ELLIPSIS";
-    goto 0x10009c240;
+    goto L14;
 
 jump_B_5: // 0x10009c028
     x23 = [message canReplyAll];
@@ -418,5 +438,26 @@ L12: // 0x10009c1f4
     x27 = &block7;
     goto jump_B_124;
 
+L13: // 0x10009c238
+    x2 = @"NOTIFY_ME_STOP";
+
+L14: // 0x10009c240
+    x3 = @"";
+    x4 = @"Main";
+    x23 = objc_msgSend;
+    x26 = 0;
+    w24 = 0;
+    Block_literal_smb block8;
+    block8.isa = &_NSConcreteStackBlock;
+    block8.flags = reusedBlockFlags;
+    block8.reserved = 0;
+    block8.invoke = 0x10009cce8;
+    block8.descriptor = &block_descriptor_8;
+    block8.captured_self = self;
+    block8.captured_message = message;
+    w8 = w25 xor 0x1;
+    block8.captured_boolUnk = w8;
+    x27 = &block8;
+    goto jump_B_124;
 
 }
