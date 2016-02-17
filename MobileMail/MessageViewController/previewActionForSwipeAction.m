@@ -221,7 +221,7 @@ jump_A_2: // 0x10009be44
     if (!swipe) goto L3;
     if (!x24) goto 0x10009c16c;
     x2 = @"PREVIEW_SWIPE_MARK_AS_UNREAD";
-    goto 0x10009c174;
+    goto L7;
 
 jump_A_3: // 0x10009be88
     x23 = [x21 messageFlags];
@@ -243,14 +243,14 @@ jump_A_5: // 0x10009becc
 
     // 0x10009bf0c
     x2 = @"PREVIEW_SWIPE_TRASH";
-    goto 0x10009bf84;
+    goto L7;
 
 L3: // 0x10009bf18
-    if (x24 == 0) goto 0x10009c188;
+    if (x24 == 0) goto L8;
 
     // 0x1000bf1c
     x2 = @"MARK_EMAIL_UNREAD";
-    goto 0x10009c190;
+    goto L9;
 
 L4: // 0x10009bf28
     x2 = @"MARK_EMAIL_FLAGGED";
