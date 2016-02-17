@@ -116,6 +116,15 @@ static struct Block_descriptor block_descriptor_5 = {
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
+// at 0x1001fe120
+static struct Block_descriptor block_descriptor_6 = {
+    0,
+    sizeof(Block_literal_6), // 0x30
+    0x000000010009c450,
+    0x000000010009c48c,
+    "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
+};
+
 // at 0x10009c384
 int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
 
@@ -367,17 +376,15 @@ L9: // 0x10009c190
 L10: // 0x10009c1a0
     x23 = objc_msgSend;
     x26 = 0;
-    x8 = &_NSConcreteStackBlock;
-    x9 = 0x10009c43c;
-    fp[-0xb0] = x8;
-    fp[-0xa8] = w28;
-    fp[-0xa8+4] = 0;
-    x8 = 0x1001fe120;
-    fp[-0xa8] = x9;
-    fp[-0xa8+8] = x8;
-    fp[-0x90] = x22;
-    fp[-0x90+8] = x21;
-    x27 = fp - 0xb0;
+    Block_literal_6 block6; //at sp+0x190
+    block6.isa = &_NSConcreteStackBlock;
+    block6.flags = w28;
+    block6.reserved = 0;
+    block6.invoke = 0x10009c43c;
+    block6.descriptor = &block_descriptor_6;
+    block6.captured_self = self;
+    block6.captured_message = message;
+    x27 = &block6;
     goto jump_B_124;
 
 }
