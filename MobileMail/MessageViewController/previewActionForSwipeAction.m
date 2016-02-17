@@ -60,6 +60,17 @@ struct Block_literal_smxsm {
     BOOL captured_swipe;
     BOOL captured_movesToTrash;
 };
+struct Block_literal_msx {
+    void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
+    int flags;
+    int reserved;
+    void (*invoke)(void *, ...);
+    struct Block_descriptor *descriptor;
+    // imported variables
+    id captured_message;
+    id captured_self;
+    id captured_xxx;
+};
 
 // at 0x1001fe1e0
 static struct Block_descriptor block_descriptor_1 = {
@@ -112,6 +123,15 @@ static struct Block_descriptor block_descriptor_6 = {
     sizeof(Block_literal_sm), // 0x30
     0x000000010009c450,
     0x000000010009c48c,
+    "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
+};
+
+// at 0x1001fe230
+static struct Block_descriptor block_descriptor_7 = {
+    0,
+    sizeof(Block_literal_msx), // 0x38
+    0x000000010009cc60,
+    0x000000010009ccac,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -206,12 +226,12 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
 jump_B_0: // 0x10009be08
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (!swipe) goto 0x10009c1dc;
+    if (!swipe) goto L11;
 
     x2 = @"PREVIEW_SWIPE_MOVE";
     x3 = @"";
     x4 = @"Main-OrbHW";
-    goto 0x10009c1f4;
+    goto L12;
 
 jump_A_2: // 0x10009be44
     x0 = [x21 messageFlags];
@@ -376,5 +396,27 @@ L10: // 0x10009c1a0
     block6.captured_message = message;
     x27 = &block6;
     goto jump_B_124;
+
+L11: // 0x10009c1dc
+    x2 = @"MOVE_SINGULAR";
+    x3 = @"";
+    x4 = @"Main";
+
+L12: // 0x10009c1f4
+    x23 = objc_msgSend;
+    x26 = 0;
+    w24 = 0;
+    Block_literal_msx block7;
+    block7.isa = &_NSConcreteStackBlock;
+    block7.flags = reusedBlockFlags;
+    block7.reserved = 0;
+    block7.invoke = 0x10009cb98;
+    block7.descriptor = &block_descriptor_7;
+    block7.captured_message = message;
+    block7.captured_self = self;
+    block7.captured_xxx = xxx;
+    x27 = &block7;
+    goto jump_B_124;
+
 
 }
