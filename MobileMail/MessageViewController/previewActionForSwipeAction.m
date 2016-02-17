@@ -149,7 +149,7 @@ static struct Block_descriptor block_descriptor_7 = {
 // at 0x1001fe240
 static struct Block_descriptor block_descriptor_8 = {
     0,
-    sizeof(Block_literal_??), // 0x31
+    sizeof(Block_literal_smb), // 0x31
     0x000000010009cd00,
     0x000000010009cd3c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
