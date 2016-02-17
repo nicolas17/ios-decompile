@@ -254,7 +254,7 @@ jump_B_0: // 0x10009be08
     goto L12;
 
 jump_A_2: // 0x10009be44
-    x0 = [x21 messageFlags];
+    x0 = [message messageFlags];
     x24 = x0 & 0x1;
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
@@ -264,7 +264,7 @@ jump_A_2: // 0x10009be44
     goto L7;
 
 jump_A_3: // 0x10009be88
-    x23 = [x21 messageFlags];
+    x23 = [message messageFlags];
     x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
 
     x0 = [NSBundle mainBundle];
@@ -379,7 +379,7 @@ jump_B_7: // 0x10009c0f8
     w24 = 0;
     Block_literal_sm block5; //at sp+0x8
     block5.isa = &_NSConcreteStackBlock;
-    block5.flags = w28;
+    block5.flags = reusedBlockFlags;
     block5.reserved = 0;
     block5.invoke = 0x10009ce7c;
     block5.descriptor = &block_descriptor_5;
@@ -408,7 +408,7 @@ L10: // 0x10009c1a0
     x26 = 0;
     Block_literal_sm block6; //at sp+0x190
     block6.isa = &_NSConcreteStackBlock;
-    block6.flags = w28;
+    block6.flags = reusedBlockFlags;
     block6.reserved = 0;
     block6.invoke = 0x10009c43c;
     block6.descriptor = &block_descriptor_6;
