@@ -219,7 +219,7 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
             goto jump_A_5; // 0x10009becc
     }
 
-    L1: // 0x10009bd4c
+L1: // 0x10009bd4c
     if (action > 6) goto L2;
 
     //0x10009bd54
@@ -240,7 +240,7 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
     w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
 
-    L2: // 0x10009bdd8
+L2: // 0x10009bdd8
     x23 = w24 = x26 = x27 = 0;
     x8 = action - 4;
     if (x8 > 7) goto jump_B_124;
