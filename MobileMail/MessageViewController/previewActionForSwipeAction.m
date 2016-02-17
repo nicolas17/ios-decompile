@@ -204,7 +204,7 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
     x0 = 0;
     switch (action) { // via jumptable1
         case 0:
-            goto 0x10009c364;
+            goto jump_A_0; // 0x10009c364;
         case 1:
             goto L2;
         case 2:
@@ -500,4 +500,21 @@ L16: // 0x10009c2c0
     block9.captured_message = message;
     block9.captured_ulongUnk = x8; // ?!
     x27 = &block9;
+
+jump_B_124: // 0x10009c2f8
+    if (w20 == 0) goto L17;
+
+    x20 = [MFSwipeActionUtilities defaultColorForAction: action];
+    x5 = [MFSwipeActionUtilities defaultIconForAction: action alternate: x24];
+    goto L18;
+
+L17: // 0x10009c338
+    x20 = 0;
+    x5 = 0;
+
+L18: // 0x10009c340
+    x0 = [UIPreviewAction _actionWithTitle:x23 style:x26 color:x20 image:x5 handler:x27];
+
+jump_A_0: // 0x10009c364
+    return x0;
 }
