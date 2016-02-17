@@ -348,4 +348,36 @@ jump_B_7: // 0x10009c0f8
     block5.captured_message = message;
     x27 = &block5;
     goto jump_B_124;
+
+L6: // 0x10009c16c
+    x2 = @"PREVIEW_SWIPE_MARK_AS_READ";
+
+L7: // 0x10009c174
+    x3 = @"";
+    x4 = @"Main-OrbHW";
+    goto L10;
+
+L8: // 0x10009c188
+    x2 = @"MARK_EMAIL_AS_READ";
+
+L9: // 0x10009c190
+    x3 = @"";
+    x4 = @"Main";
+
+L10: // 0x10009c1a0
+    x23 = objc_msgSend;
+    x26 = 0;
+    x8 = &_NSConcreteStackBlock;
+    x9 = 0x10009c43c;
+    fp[-0xb0] = x8;
+    fp[-0xa8] = w28;
+    fp[-0xa8+4] = 0;
+    x8 = 0x1001fe120;
+    fp[-0xa8] = x9;
+    fp[-0xa8+8] = x8;
+    fp[-0x90] = x22;
+    fp[-0x90+8] = x21;
+    x27 = fp - 0xb0;
+    goto jump_B_124;
+
 }
