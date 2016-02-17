@@ -82,6 +82,17 @@ struct Block_literal_smb {
     id captured_message;
     BOOL captured_boolUnk;
 };
+struct Block_literal_sml {
+    void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
+    int flags;
+    int reserved;
+    void (*invoke)(void *, ...);
+    struct Block_descriptor *descriptor;
+    // imported variables
+    id captured_self;
+    id captured_message;
+    unsigned long long captured_ulongUnk;
+};
 
 // at 0x1001fe1e0
 static struct Block_descriptor block_descriptor_1 = {
@@ -152,6 +163,15 @@ static struct Block_descriptor block_descriptor_8 = {
     sizeof(Block_literal_smb), // 0x31
     0x000000010009cd00,
     0x000000010009cd3c,
+    "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
+};
+
+// at 0x1001fe270
+static struct Block_descriptor block_descriptor_9 = {
+    0,
+    sizeof(Block_literal_sml), // 0x38
+    0x000000010009cd88,
+    0x000000010009cdc4,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -349,14 +369,14 @@ jump_B_5: // 0x10009c028
     x23 = [message canReplyAll];
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (w23 == 0) goto 0x10009c29c;
+    if (w23 == 0) goto L15;
 
     x2 = @"REPLY_ALL";
     x3 = @"";
     x4 = @"Main";
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
     w8 = 0x1;
-    goto 0x10009c2c0;
+    goto L16;
 
 jump_B_6: // 0x10009c084
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"FORWARD" value:"" table:"Main"];
@@ -460,4 +480,24 @@ L14: // 0x10009c240
     x27 = &block8;
     goto jump_B_124;
 
+L15: // 0x10009c29c
+    x2 = @"REPLY";
+    x3 = @"";
+    x4 = @"Main";
+    x23 = objc_msgSend;
+    x8 = 0;
+
+L16: // 0x10009c2c0
+    x26 = 0;
+    w24 = 0;
+    Block_literal_sml block9;
+    block9.isa = &_NSConcreteStackBlock;
+    block9.flags = reusedBlockFlags;
+    block9.reserved = 0;
+    block9.invoke = 0x10009cd6c;
+    block9.descriptor = &block_descriptor_9;
+    block9.captured_self = self;
+    block9.captured_message = message;
+    block9.captured_ulongUnk = x8; // ?!
+    x27 = &block9;
 }
