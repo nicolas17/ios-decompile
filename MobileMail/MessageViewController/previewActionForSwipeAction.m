@@ -224,17 +224,17 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_ARCHIVE" value:"" table:"Main-OrbHW"];
 
     w24 = 0;
-    Block_literal_smxs myBlock;
-    myBlock.isa = &_NSConcreteStackBlock;
-    myBlock.flags = reusedBlockFlags;
-    myBlock.reserved = 0;
-    myBlock.invoke = 0x10009c82c;
-    myBlock.descriptor = block_descriptor_1;
-    myBlock.captured_self = self;
-    myBlock.captured_message = message;
-    myBlock.captured_xxx = x25;
-    myBlock.captured_swipe = swipe; // 8-bit
-    x27 = &myBlock;
+    Block_literal_smxs block1;
+    block1.isa = &_NSConcreteStackBlock;
+    block1.flags = reusedBlockFlags;
+    block1.reserved = 0;
+    block1.invoke = 0x10009c82c;
+    block1.descriptor = block_descriptor_1;
+    block1.captured_self = self;
+    block1.captured_message = message;
+    block1.captured_xxx = x25;
+    block1.captured_swipe = swipe; // 8-bit
+    x27 = &block1;
     w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
 
