@@ -181,6 +181,8 @@ int32_t jumptable1[] = { -0x20, -0x638, -0x540, -0x4fc, -0x638, -0x4b8 };
 // at 0x10009c39c
 int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0x2a4 };
 
+@implementation MessageViewController
+
 -(UIPreviewAction*)_previewActionForSwipeAction: (unsigned long long)action
                                     withMessage: (id)message
                                        forSwipe: (BOOL)swipe
@@ -518,3 +520,5 @@ L18: // 0x10009c340
 jump_A_0: // 0x10009c364
     return x0;
 }
+
+@end
