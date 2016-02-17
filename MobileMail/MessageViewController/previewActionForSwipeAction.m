@@ -25,7 +25,7 @@ struct Block_descriptor {
     const char *signature;                         // IFF (1<<30)
 };
 
-struct Block_literal_1 {
+struct Block_literal_smxs {
     void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
     int flags;
     int reserved;
@@ -37,7 +37,7 @@ struct Block_literal_1 {
     id captured_xxx;
     BOOL captured_swipe;
 };
-struct Block_literal_2 {
+struct Block_literal_sm {
     void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
     int flags;
     int reserved;
@@ -47,7 +47,7 @@ struct Block_literal_2 {
     id captured_self;
     id captured_message;
 };
-struct Block_literal_3 {
+struct Block_literal_smxsm {
     void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
     int flags;
     int reserved;
@@ -60,21 +60,11 @@ struct Block_literal_3 {
     BOOL captured_swipe;
     BOOL captured_movesToTrash;
 };
-struct Block_literal_4 {
-    void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
-    int flags;
-    int reserved;
-    void (*invoke)(void *, ...);
-    struct Block_descriptor *descriptor;
-    // imported variables
-    id captured_self;
-    id captured_message;
-};
 
 // at 0x1001fe1e0
 static struct Block_descriptor block_descriptor_1 = {
     0,
-    sizeof(Block_literal_1), // 0x39
+    sizeof(Block_literal_smxs), // 0x39
     0x000000010009cb10,
     0x000000010009cb5c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
@@ -83,7 +73,7 @@ static struct Block_descriptor block_descriptor_1 = {
 // at 0x1001fe0f0
 static struct Block_descriptor block_descriptor_2 = {
     0,
-    sizeof(Block_literal_2), // 0x30
+    sizeof(Block_literal_sm), // 0x30
     0x000000010009c3d0,
     0x000000010009c40c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
@@ -92,7 +82,7 @@ static struct Block_descriptor block_descriptor_2 = {
 // at 0x1001fe180
 static struct Block_descriptor block_descriptor_3 = {
     0,
-    sizeof(Block_literal_3), // 0x3a
+    sizeof(Block_literal_smxsm), // 0x3a
     0x000000010009c7a4,
     0x000000010009c7f0,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
@@ -101,7 +91,7 @@ static struct Block_descriptor block_descriptor_3 = {
 // at 0x1001fe2a0
 static struct Block_descriptor block_descriptor_4 = {
     0,
-    sizeof(Block_literal_4), // 0x30
+    sizeof(Block_literal_sm), // 0x30
     0x000000010009ce10,
     0x000000010009ce4c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
@@ -110,7 +100,7 @@ static struct Block_descriptor block_descriptor_4 = {
 // at 0x1001fe2d0
 static struct Block_descriptor block_descriptor_5 = {
     0,
-    sizeof(Block_literal_5), // 0x30
+    sizeof(Block_literal_sm), // 0x30
     0x000000010009ce98,
     0x000000010009ced4,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
@@ -119,7 +109,7 @@ static struct Block_descriptor block_descriptor_5 = {
 // at 0x1001fe120
 static struct Block_descriptor block_descriptor_6 = {
     0,
-    sizeof(Block_literal_6), // 0x30
+    sizeof(Block_literal_sm), // 0x30
     0x000000010009c450,
     0x000000010009c48c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
@@ -174,7 +164,7 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_ARCHIVE" value:"" table:"Main-OrbHW"];
 
     w24 = 0;
-    Block_literal_1 myBlock;
+    Block_literal_smxs myBlock;
     myBlock.isa = &_NSConcreteStackBlock;
     myBlock.flags = reusedBlockFlags;
     myBlock.reserved = 0;
@@ -270,7 +260,7 @@ L5: // 0x10009bf30
     x4 = @"Main";
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x26 = 0;
-    Block_literal_2 block2; // at sp+0x1c0
+    Block_literal_sm block2; // at sp+0x1c0
     block2.isa = &_NSConcreteStackBlock;
     block2.flags = reusedBlockFlags;
     block2.reserved = 0;
@@ -290,7 +280,7 @@ L7: // 0x10009bf84
     x23 = objc_msgSend;
 
     x24 = 0;
-    Block_literal_3 block3; // at sp+0x150
+    Block_literal_smxsm block3; // at sp+0x150
     block3.isa = &_NSConcreteStackBlock;
     block3.flags = reusedBlockFlags;
     block3.reserved = 0;
@@ -332,7 +322,7 @@ jump_B_6: // 0x10009c084
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"FORWARD" value:"" table:"Main"];
     x26 = 0;
     w24 = 0;
-    Block_literal_4 block4; // at sp+0x38
+    Block_literal_sm block4; // at sp+0x38
     block4.isa = &_NSConcreteStackBlock;
     block4.flags = reusedBlockFlags;
     block4.reserved = 0;
@@ -347,7 +337,7 @@ jump_B_7: // 0x10009c0f8
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_JUNK" value:"" table:"Main"];
     x26 = 0;
     w24 = 0;
-    Block_literal_4 block5; //at sp+0x8; sic! it has the same layout so I reuse struct #4
+    Block_literal_sm block5; //at sp+0x8
     block5.isa = &_NSConcreteStackBlock;
     block5.flags = w28;
     block5.reserved = 0;
@@ -376,7 +366,7 @@ L9: // 0x10009c190
 L10: // 0x10009c1a0
     x23 = objc_msgSend;
     x26 = 0;
-    Block_literal_6 block6; //at sp+0x190
+    Block_literal_sm block6; //at sp+0x190
     block6.isa = &_NSConcreteStackBlock;
     block6.flags = w28;
     block6.reserved = 0;
