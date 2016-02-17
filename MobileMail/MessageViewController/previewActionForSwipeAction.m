@@ -219,7 +219,7 @@ jump_A_2: // 0x10009be44
     x24 = x0 & 0x1;
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (!swipe) goto 0x10009bf18;
+    if (!swipe) goto L3;
     if (!x24) goto 0x10009c16c;
     x2 = @"PREVIEW_SWIPE_MARK_AS_UNREAD";
     goto 0x10009c174;
@@ -230,33 +230,33 @@ jump_A_3: // 0x10009be88
 
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (w23 & (1<<4) == 0) goto 0x10009bf28;
+    if (w23 & (1<<4) == 0) goto L4;
 
     x2 = @"MARK_EMAIL_UNFLAGGED";
 
-    goto 0x10009bf30;
+    goto L5;
 
 jump_A_5: // 0x10009becc
     x26 = [self->_mall deleteMovesToTrashForMessage: message];
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (w26 == 0) goto 0x10009bf7c;
+    if (w26 == 0) goto L6;
 
     // 0x10009bf0c
     x2 = @"PREVIEW_SWIPE_TRASH";
     goto 0x10009bf84;
 
-    // 0x10009bf18
+L3: // 0x10009bf18
     if (x24 == 0) goto 0x10009c188;
 
     // 0x1000bf1c
     x2 = @"MARK_EMAIL_UNREAD";
     goto 0x10009c190;
 
-    // 0x10009bf28
+L4: // 0x10009bf28
     x2 = @"MARK_EMAIL_FLAGGED";
 
-    // 0x10009bf30
+L5: // 0x10009bf30
     x3 = @"";
     x4 = @"Main";
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
@@ -272,10 +272,10 @@ jump_A_5: // 0x10009becc
     x27 = &block2;
     goto jump_B_124;
 
-    // 0x10009bf7c
+L6: // 0x10009bf7c
     x2 = @"PREVIEW_SWIPE_DELETE";
 
-    // 0x10009bf84
+L7: // 0x10009bf84
     x3 = @"";
     x4 = @"Main-OrbHW";
     x23 = objc_msgSend;
