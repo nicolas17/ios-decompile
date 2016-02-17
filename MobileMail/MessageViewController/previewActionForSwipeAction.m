@@ -259,7 +259,7 @@ jump_A_2: // 0x10009be44
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
     if (!swipe) goto L3;
-    if (!x24) goto 0x10009c16c;
+    if (!x24) goto L6;
     x2 = @"PREVIEW_SWIPE_MARK_AS_UNREAD";
     goto L7;
 
