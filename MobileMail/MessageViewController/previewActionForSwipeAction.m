@@ -310,7 +310,7 @@ jump_A_5: // 0x10009becc
 L3: // 0x10009bf18
     if (x24 == 0) goto L8;
 
-    // 0x1000bf1c
+    // 0x10009bf1c
     x2 = @"MARK_EMAIL_UNREAD";
     goto L9;
 
