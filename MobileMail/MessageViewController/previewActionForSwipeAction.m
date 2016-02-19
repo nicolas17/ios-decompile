@@ -206,15 +206,15 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
     x0 = 0;
     switch (action) { // via jumptable1
         case 0:
-            goto jump_A_0; // 0x10009c364;
+            goto jump_A_0; // 0x10009c364
         case 1:
-            goto L2;
+            goto L1; // 0x10009bd4c
         case 2:
             goto jump_A_2; // 0x10009be44
         case 3:
             goto jump_A_3; // 0x10009be88
         case 4:
-            goto L2;
+            goto L1; // 0x10009bd4c
         case 5:
             goto jump_A_5; // 0x10009becc
     }
