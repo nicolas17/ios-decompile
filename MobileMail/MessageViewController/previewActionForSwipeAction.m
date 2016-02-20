@@ -201,6 +201,7 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
 
     // reusedBlockFlags is in w28, apparently throughout the function
     reusedBlockFlags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_SIGNATURE | BLOCK_HAS_EXTENDED_LAYOUT;
+    x8 = action - 5;
     if (action > 5) goto L1;
 
     x0 = 0;
@@ -220,7 +221,7 @@ int32_t jumptable2[] = { -0x594, -0xa4, -0xa4, -0x3b8, -0xa4, -0x374, -0x318, -0
     }
 
 L1: // 0x10009bd4c
-    if (action > 6) goto L2;
+    if (x8 > 1 /* unsigned comparison! */) goto L2;
 
     //0x10009bd54
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_ARCHIVE" value:"" table:"Main-OrbHW"];
