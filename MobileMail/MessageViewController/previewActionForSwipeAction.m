@@ -375,6 +375,28 @@ jump_B_3: // 0x10009bfe4
     x2 = @"NOTIFY_ME_ELLIPSIS";
     goto L14;
 
+L13: // 0x10009c238
+    x2 = @"NOTIFY_ME_STOP";
+
+L14: // 0x10009c240
+    x3 = @"";
+    x4 = @"Main";
+    x23 = objc_msgSend;
+    x26 = 0;
+    w24 = 0;
+    Block_literal_smb block8;
+    block8.isa = &_NSConcreteStackBlock;
+    block8.flags = reusedBlockFlags;
+    block8.reserved = 0;
+    block8.invoke = 0x10009cce8;
+    block8.descriptor = &block_descriptor_8;
+    block8.captured_self = self;
+    block8.captured_message = message;
+    w8 = w25 xor 0x1;
+    block8.captured_boolUnk = w8;
+    x27 = &block8;
+    goto jump_B_124;
+
 jump_B_5: // 0x10009c028
     x23 = [message canReplyAll];
     x0 = [NSBundle mainBundle];
@@ -445,28 +467,6 @@ L10: // 0x10009c1a0
     block6.captured_self = self;
     block6.captured_message = message;
     x27 = &block6;
-    goto jump_B_124;
-
-L13: // 0x10009c238
-    x2 = @"NOTIFY_ME_STOP";
-
-L14: // 0x10009c240
-    x3 = @"";
-    x4 = @"Main";
-    x23 = objc_msgSend;
-    x26 = 0;
-    w24 = 0;
-    Block_literal_smb block8;
-    block8.isa = &_NSConcreteStackBlock;
-    block8.flags = reusedBlockFlags;
-    block8.reserved = 0;
-    block8.invoke = 0x10009cce8;
-    block8.descriptor = &block_descriptor_8;
-    block8.captured_self = self;
-    block8.captured_message = message;
-    w8 = w25 xor 0x1;
-    block8.captured_boolUnk = w8;
-    x27 = &block8;
     goto jump_B_124;
 
 L15: // 0x10009c29c
