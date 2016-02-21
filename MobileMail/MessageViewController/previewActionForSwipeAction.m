@@ -209,7 +209,7 @@ static struct Block_descriptor block_descriptor_9 = {
     }
 
 L1: // 0x10009bd4c
-    if (x8 > 1 /* unsigned comparison! */) goto L2;
+    if ((unsigned)x8 > 1) goto L2;
 
     //0x10009bd54
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_ARCHIVE" value:"" table:"Main-OrbHW"];
@@ -232,7 +232,7 @@ L1: // 0x10009bd4c
 L2: // 0x10009bdd8
     x23 = w24 = x26 = x27 = 0;
     x8 = action - 4;
-    if (x8 > 7) goto jump_B_124;
+    if ((unsigned)x8 > 7) goto jump_B_124;
 
     // 0x10009bdf4
     switch (x8) {
