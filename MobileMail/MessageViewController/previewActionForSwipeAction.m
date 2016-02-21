@@ -305,23 +305,6 @@ jump_A_3: // 0x10009be88
 
     goto L5;
 
-jump_A_5: // 0x10009becc
-    x26 = [self->_mall deleteMovesToTrashForMessage: message];
-    x0 = [NSBundle mainBundle];
-    x1 = @selector(localizedStringForKey:value:table:);
-    if (w26 == 0) goto L5a;
-
-    // 0x10009bf0c
-    x2 = @"PREVIEW_SWIPE_TRASH";
-    goto L5b;
-
-L3: // 0x10009bf18
-    if (x24 == 0) goto L8;
-
-    // 0x10009bf1c
-    x2 = @"MARK_EMAIL_UNREAD";
-    goto L9;
-
 L4: // 0x10009bf28
     x2 = @"MARK_EMAIL_FLAGGED";
 
@@ -340,6 +323,23 @@ L5: // 0x10009bf30
     block2.captured_message = message;
     x27 = &block2;
     goto jump_B_124;
+
+jump_A_5: // 0x10009becc
+    x26 = [self->_mall deleteMovesToTrashForMessage: message];
+    x0 = [NSBundle mainBundle];
+    x1 = @selector(localizedStringForKey:value:table:);
+    if (w26 == 0) goto L5a;
+
+    // 0x10009bf0c
+    x2 = @"PREVIEW_SWIPE_TRASH";
+    goto L5b;
+
+L3: // 0x10009bf18
+    if (x24 == 0) goto L8;
+
+    // 0x10009bf1c
+    x2 = @"MARK_EMAIL_UNREAD";
+    goto L9;
 
 L5a: // 0x10009bf7c
     x2 = @"PREVIEW_SWIPE_DELETE";
