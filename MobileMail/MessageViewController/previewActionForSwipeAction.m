@@ -467,17 +467,13 @@ L10: // 0x10009c1a0
     goto jump_B_124;
 
 jump_B_124: // 0x10009c2f8
-    if (w20 == 0) goto L17;
-
-    x20 = [MFSwipeActionUtilities defaultColorForAction: action];
-    x5 = [MFSwipeActionUtilities defaultIconForAction: action alternate: x24];
-    goto L18;
-
-L17: // 0x10009c338
-    x20 = 0;
-    x5 = 0;
-
-L18: // 0x10009c340
+    if (w20 == 0) {
+        x20 = 0;
+        x5 = 0;
+    } else {
+        x20 = [MFSwipeActionUtilities defaultColorForAction: action];
+        x5 = [MFSwipeActionUtilities defaultIconForAction: action alternate: x24];
+    }
     x0 = [UIPreviewAction _actionWithTitle:x23 style:x26 color:x20 image:x5 handler:x27];
 
 jump_A_0: // 0x10009c364
