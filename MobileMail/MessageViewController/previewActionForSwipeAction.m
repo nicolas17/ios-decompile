@@ -410,6 +410,28 @@ jump_B_5: // 0x10009c028
     w8 = 0x1;
     goto L16;
 
+L15: // 0x10009c29c
+    x2 = @"REPLY";
+    x3 = @"";
+    x4 = @"Main";
+    x23 = objc_msgSend;
+    x8 = 0;
+
+L16: // 0x10009c2c0
+    x26 = 0;
+    w24 = 0;
+    Block_literal_sml block9;
+    block9.isa = &_NSConcreteStackBlock;
+    block9.flags = reusedBlockFlags;
+    block9.reserved = 0;
+    block9.invoke = 0x10009cd6c;
+    block9.descriptor = &block_descriptor_9;
+    block9.captured_self = self;
+    block9.captured_message = message;
+    block9.captured_ulongUnk = x8; // ?!
+    x27 = &block9;
+    goto jump_B_124;
+
 jump_B_6: // 0x10009c084
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"FORWARD" value:"" table:"Main"];
     x26 = 0;
@@ -468,27 +490,6 @@ L10: // 0x10009c1a0
     block6.captured_message = message;
     x27 = &block6;
     goto jump_B_124;
-
-L15: // 0x10009c29c
-    x2 = @"REPLY";
-    x3 = @"";
-    x4 = @"Main";
-    x23 = objc_msgSend;
-    x8 = 0;
-
-L16: // 0x10009c2c0
-    x26 = 0;
-    w24 = 0;
-    Block_literal_sml block9;
-    block9.isa = &_NSConcreteStackBlock;
-    block9.flags = reusedBlockFlags;
-    block9.reserved = 0;
-    block9.invoke = 0x10009cd6c;
-    block9.descriptor = &block_descriptor_9;
-    block9.captured_self = self;
-    block9.captured_message = message;
-    block9.captured_ulongUnk = x8; // ?!
-    x27 = &block9;
 
 jump_B_124: // 0x10009c2f8
     if (w20 == 0) goto L17;
