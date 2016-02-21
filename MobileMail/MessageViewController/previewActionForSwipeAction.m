@@ -285,24 +285,23 @@ jump_A_2: // 0x10009be44
     x24 = x0 & 0x1;
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (!swipe) goto L3;
-    if (!x24) {
-        x2 = @"PREVIEW_SWIPE_MARK_AS_READ";
+    if (!swipe) {
+        if (x24 == 0) {
+            x2 = @"MARK_EMAIL_AS_READ";
+        } else {
+            x2 = @"MARK_EMAIL_UNREAD";
+        }
+        x3 = @"";
+        x4 = @"Main";
     } else {
-        x2 = @"PREVIEW_SWIPE_MARK_AS_UNREAD";
+        if (!x24) {
+            x2 = @"PREVIEW_SWIPE_MARK_AS_READ";
+        } else {
+            x2 = @"PREVIEW_SWIPE_MARK_AS_UNREAD";
+        }
+        x3 = @"";
+        x4 = @"Main-OrbHW";
     }
-    x3 = @"";
-    x4 = @"Main-OrbHW";
-    goto L10;
-
-L3: // 0x10009bf18
-    if (x24 == 0) {
-        x2 = @"MARK_EMAIL_AS_READ";
-    } else {
-        x2 = @"MARK_EMAIL_UNREAD";
-    }
-    x3 = @"";
-    x4 = @"Main";
     goto L10;
 
 jump_A_3: // 0x10009be88
