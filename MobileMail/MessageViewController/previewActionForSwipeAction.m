@@ -262,6 +262,27 @@ jump_B_0: // 0x10009be08
     x4 = @"Main-OrbHW";
     goto L12;
 
+L11: // 0x10009c1dc
+    x2 = @"MOVE_SINGULAR";
+    x3 = @"";
+    x4 = @"Main";
+
+L12: // 0x10009c1f4
+    x23 = objc_msgSend;
+    x26 = 0;
+    w24 = 0;
+    Block_literal_msx block7;
+    block7.isa = &_NSConcreteStackBlock;
+    block7.flags = reusedBlockFlags;
+    block7.reserved = 0;
+    block7.invoke = 0x10009cb98;
+    block7.descriptor = &block_descriptor_7;
+    block7.captured_message = message;
+    block7.captured_self = self;
+    block7.captured_xxx = xxx;
+    x27 = &block7;
+    goto jump_B_124;
+
 jump_A_2: // 0x10009be44
     x0 = [message messageFlags];
     x24 = x0 & 0x1;
@@ -424,27 +445,6 @@ L10: // 0x10009c1a0
     block6.captured_self = self;
     block6.captured_message = message;
     x27 = &block6;
-    goto jump_B_124;
-
-L11: // 0x10009c1dc
-    x2 = @"MOVE_SINGULAR";
-    x3 = @"";
-    x4 = @"Main";
-
-L12: // 0x10009c1f4
-    x23 = objc_msgSend;
-    x26 = 0;
-    w24 = 0;
-    Block_literal_msx block7;
-    block7.isa = &_NSConcreteStackBlock;
-    block7.flags = reusedBlockFlags;
-    block7.reserved = 0;
-    block7.invoke = 0x10009cb98;
-    block7.descriptor = &block_descriptor_7;
-    block7.captured_message = message;
-    block7.captured_self = self;
-    block7.captured_xxx = xxx;
-    x27 = &block7;
     goto jump_B_124;
 
 L13: // 0x10009c238
