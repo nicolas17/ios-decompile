@@ -295,6 +295,16 @@ jump_A_2: // 0x10009be44
     x4 = @"Main-OrbHW";
     goto L10;
 
+L3: // 0x10009bf18
+    if (x24 == 0) {
+        x2 = @"MARK_EMAIL_AS_READ";
+    } else {
+        x2 = @"MARK_EMAIL_UNREAD";
+    }
+    x3 = @"";
+    x4 = @"Main";
+    goto L10;
+
 jump_A_3: // 0x10009be88
     x23 = [message messageFlags];
     x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
@@ -351,16 +361,6 @@ jump_A_5: // 0x10009becc
     x27 = &block3;
     w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
-
-L3: // 0x10009bf18
-    if (x24 == 0) {
-        x2 = @"MARK_EMAIL_AS_READ";
-    } else {
-        x2 = @"MARK_EMAIL_UNREAD";
-    }
-    x3 = @"";
-    x4 = @"Main";
-    goto L10;
 
 jump_B_3: // 0x10009bfe4
     x23 = [message conversationFlags];
