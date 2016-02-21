@@ -354,6 +354,14 @@ L3: // 0x10009bf18
     x2 = @"MARK_EMAIL_UNREAD";
     goto L9;
 
+L8: // 0x10009c188
+    x2 = @"MARK_EMAIL_AS_READ";
+
+L9: // 0x10009c190
+    x3 = @"";
+    x4 = @"Main";
+    goto L10;
+
 jump_B_3: // 0x10009bfe4
     x23 = [message conversationFlags];
     x25 = x23 & 1; //potentially useless?
@@ -452,13 +460,6 @@ L7: // 0x10009c174
     x3 = @"";
     x4 = @"Main-OrbHW";
     goto L10;
-
-L8: // 0x10009c188
-    x2 = @"MARK_EMAIL_AS_READ";
-
-L9: // 0x10009c190
-    x3 = @"";
-    x4 = @"Main";
 
 L10: // 0x10009c1a0
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
