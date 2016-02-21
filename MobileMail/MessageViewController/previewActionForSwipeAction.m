@@ -334,13 +334,6 @@ jump_A_5: // 0x10009becc
     x2 = @"PREVIEW_SWIPE_TRASH";
     goto L5b;
 
-L3: // 0x10009bf18
-    if (x24 == 0) goto L8;
-
-    // 0x10009bf1c
-    x2 = @"MARK_EMAIL_UNREAD";
-    goto L9;
-
 L5a: // 0x10009bf7c
     x2 = @"PREVIEW_SWIPE_DELETE";
 
@@ -364,6 +357,13 @@ L5b: // 0x10009bf84
     x27 = &block3;
     w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
+
+L3: // 0x10009bf18
+    if (x24 == 0) goto L8;
+
+    // 0x10009bf1c
+    x2 = @"MARK_EMAIL_UNREAD";
+    goto L9;
 
 jump_B_3: // 0x10009bfe4
     x23 = [message conversationFlags];
