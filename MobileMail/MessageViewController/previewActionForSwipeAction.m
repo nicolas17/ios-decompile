@@ -242,14 +242,14 @@ L2: // 0x10009bdd8
 
     // 0x10009bdf4
     switch (x8) { // via jumptable2
-        case 0: goto jump_B_0; // 0x10009be08
-        case 1: goto jump_B_1; // 0x10009c2f8
-        case 2: goto jump_B_2; // 0x10009c2f8
-        case 3: goto jump_B_3; // 0x10009bfe4
-        case 4: goto jump_B_4; // 0x10009c2f8
-        case 5: goto jump_B_5; // 0x10009c028
-        case 6: goto jump_B_6; // 0x10009c084
-        case 7: goto jump_B_7; // 0x10009c0f8
+        case 0: goto jump_B_0;   // 0x10009be08
+        case 1: goto jump_B_124; // 0x10009c2f8
+        case 2: goto jump_B_124; // 0x10009c2f8
+        case 3: goto jump_B_3;   // 0x10009bfe4
+        case 4: goto jump_B_124; // 0x10009c2f8
+        case 5: goto jump_B_5;   // 0x10009c028
+        case 6: goto jump_B_6;   // 0x10009c084
+        case 7: goto jump_B_7;   // 0x10009c0f8
     }
 
 jump_B_0: // 0x10009be08
