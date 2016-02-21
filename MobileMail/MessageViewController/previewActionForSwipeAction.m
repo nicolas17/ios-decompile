@@ -290,6 +290,14 @@ jump_A_2: // 0x10009be44
     x2 = @"PREVIEW_SWIPE_MARK_AS_UNREAD";
     goto L7;
 
+L6: // 0x10009c16c
+    x2 = @"PREVIEW_SWIPE_MARK_AS_READ";
+
+L7: // 0x10009c174
+    x3 = @"";
+    x4 = @"Main-OrbHW";
+    goto L10;
+
 jump_A_3: // 0x10009be88
     x23 = [message messageFlags];
     x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
@@ -452,14 +460,6 @@ jump_B_7: // 0x10009c0f8
     block5.captured_message = message;
     x27 = &block5;
     goto jump_B_124;
-
-L6: // 0x10009c16c
-    x2 = @"PREVIEW_SWIPE_MARK_AS_READ";
-
-L7: // 0x10009c174
-    x3 = @"";
-    x4 = @"Main-OrbHW";
-    goto L10;
 
 L10: // 0x10009c1a0
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
