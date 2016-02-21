@@ -302,11 +302,11 @@ jump_A_5: // 0x10009becc
     x26 = [self->_mall deleteMovesToTrashForMessage: message];
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (w26 == 0) goto L6;
+    if (w26 == 0) goto L5a;
 
     // 0x10009bf0c
     x2 = @"PREVIEW_SWIPE_TRASH";
-    goto L7;
+    goto L5b;
 
 L3: // 0x10009bf18
     if (x24 == 0) goto L8;
@@ -334,10 +334,10 @@ L5: // 0x10009bf30
     x27 = &block2;
     goto jump_B_124;
 
-L6: // 0x10009bf7c
+L5a: // 0x10009bf7c
     x2 = @"PREVIEW_SWIPE_DELETE";
 
-L7: // 0x10009bf84
+L5b: // 0x10009bf84
     x3 = @"";
     x4 = @"Main-OrbHW";
     x23 = objc_msgSend;
