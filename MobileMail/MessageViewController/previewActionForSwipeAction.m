@@ -200,12 +200,12 @@ static struct Block_descriptor block_descriptor_9 = {
 
     x0 = 0;
     switch (action) {
-        case 0: goto jump_A_0; // 0x10009c364
-        case 1: goto L1;       // 0x10009bd4c
-        case 2: goto jump_A_2; // 0x10009be44
-        case 3: goto jump_A_3; // 0x10009be88
-        case 4: goto L1;       // 0x10009bd4c
-        case 5: goto jump_A_5; // 0x10009becc
+        case 0: goto jump_A_0;    // 0x10009c364
+        case 1: goto L1;          // 0x10009bd4c
+        case 2: goto Toggle_Read; // 0x10009be44
+        case 3: goto Toggle_Flag; // 0x10009be88
+        case 4: goto L1;          // 0x10009bd4c
+        case 5: goto Msg_Delete;  // 0x10009becc
     }
 
 L1: // 0x10009bd4c
@@ -236,17 +236,17 @@ L2: // 0x10009bdd8
 
     // 0x10009bdf4
     switch (x8) {
-        case 0: goto jump_B_0;   // 0x10009be08
-        case 1: goto jump_B_124; // 0x10009c2f8
-        case 2: goto jump_B_124; // 0x10009c2f8
-        case 3: goto jump_B_3;   // 0x10009bfe4
-        case 4: goto jump_B_124; // 0x10009c2f8
-        case 5: goto jump_B_5;   // 0x10009c028
-        case 6: goto jump_B_6;   // 0x10009c084
-        case 7: goto jump_B_7;   // 0x10009c0f8
+        case 0: goto Msg_Move;      // 0x10009be08
+        case 1: goto jump_B_124;    // 0x10009c2f8
+        case 2: goto jump_B_124;    // 0x10009c2f8
+        case 3: goto Toggle_Notify; // 0x10009bfe4
+        case 4: goto jump_B_124;    // 0x10009c2f8
+        case 5: goto Msg_Reply;     // 0x10009c028
+        case 6: goto Msg_Forward;   // 0x10009c084
+        case 7: goto Msg_Junk;      // 0x10009c0f8
     }
 
-jump_B_0: // 0x10009be08
+Msg_Move: // 0x10009be08
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
     if (!swipe) {
@@ -274,7 +274,7 @@ jump_B_0: // 0x10009be08
     x27 = &block7;
     goto jump_B_124;
 
-jump_A_2: // 0x10009be44
+Toggle_Read: // 0x10009be44
     x0 = [message messageFlags];
     x24 = x0 & 0x1;
     x0 = [NSBundle mainBundle];
@@ -309,7 +309,7 @@ jump_A_2: // 0x10009be44
     x27 = &block6;
     goto jump_B_124;
 
-jump_A_3: // 0x10009be88
+Toggle_Flag: // 0x10009be88
     x23 = [message messageFlags];
     x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
 
@@ -336,7 +336,7 @@ jump_A_3: // 0x10009be88
     x27 = &block2;
     goto jump_B_124;
 
-jump_A_5: // 0x10009becc
+Msg_Delete: // 0x10009becc
     x26 = [self->_mall deleteMovesToTrashForMessage: message];
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
@@ -366,7 +366,7 @@ jump_A_5: // 0x10009becc
     w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
 
-jump_B_3: // 0x10009bfe4
+Toggle_Notify: // 0x10009bfe4
     x23 = [message conversationFlags];
     x25 = x23 & 1; //potentially useless?
     x0 = [NSBundle mainBundle];
@@ -395,7 +395,7 @@ jump_B_3: // 0x10009bfe4
     x27 = &block8;
     goto jump_B_124;
 
-jump_B_5: // 0x10009c028
+Msg_Reply: // 0x10009c028
     x23 = [message canReplyAll];
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
@@ -427,7 +427,7 @@ jump_B_5: // 0x10009c028
     x27 = &block9;
     goto jump_B_124;
 
-jump_B_6: // 0x10009c084
+Msg_Forward: // 0x10009c084
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"FORWARD" value:"" table:"Main"];
     x26 = 0;
     w24 = 0;
@@ -442,7 +442,7 @@ jump_B_6: // 0x10009c084
     x27 = &block4;
     goto jump_B_124;
 
-jump_B_7: // 0x10009c0f8
+Msg_Junk: // 0x10009c0f8
     x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_JUNK" value:"" table:"Main"];
     x26 = 0;
     w24 = 0;
