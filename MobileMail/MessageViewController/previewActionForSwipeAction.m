@@ -302,7 +302,18 @@ jump_A_2: // 0x10009be44
         x3 = @"";
         x4 = @"Main-OrbHW";
     }
-    goto L10;
+    x23 = objc_msgSend(x0,x1,x2,x3,x4);
+    x26 = 0;
+    Block_literal_sm block6; //at sp+0x190
+    block6.isa = &_NSConcreteStackBlock;
+    block6.flags = reusedBlockFlags;
+    block6.reserved = 0;
+    block6.invoke = 0x10009c43c;
+    block6.descriptor = &block_descriptor_6;
+    block6.captured_self = self;
+    block6.captured_message = message;
+    x27 = &block6;
+    goto jump_B_124;
 
 jump_A_3: // 0x10009be88
     x23 = [message messageFlags];
@@ -450,20 +461,6 @@ jump_B_7: // 0x10009c0f8
     block5.captured_self = self;
     block5.captured_message = message;
     x27 = &block5;
-    goto jump_B_124;
-
-L10: // 0x10009c1a0
-    x23 = objc_msgSend(x0,x1,x2,x3,x4);
-    x26 = 0;
-    Block_literal_sm block6; //at sp+0x190
-    block6.isa = &_NSConcreteStackBlock;
-    block6.flags = reusedBlockFlags;
-    block6.reserved = 0;
-    block6.invoke = 0x10009c43c;
-    block6.descriptor = &block_descriptor_6;
-    block6.captured_self = self;
-    block6.captured_message = message;
-    x27 = &block6;
     goto jump_B_124;
 
 jump_B_124: // 0x10009c2f8
