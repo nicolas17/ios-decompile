@@ -268,7 +268,7 @@ L11: // 0x10009c1dc
     x4 = @"Main";
 
 L12: // 0x10009c1f4
-    x23 = objc_msgSend;
+    x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x26 = 0;
     w24 = 0;
     Block_literal_msx block7;
@@ -340,7 +340,7 @@ L5a: // 0x10009bf7c
 L5b: // 0x10009bf84
     x3 = @"";
     x4 = @"Main-OrbHW";
-    x23 = objc_msgSend;
+    x23 = objc_msgSend(x0,x1,x2,x3,x4);
 
     x24 = 0;
     Block_literal_smxsm block3; // at sp+0x150
@@ -381,7 +381,7 @@ L13: // 0x10009c238
 L14: // 0x10009c240
     x3 = @"";
     x4 = @"Main";
-    x23 = objc_msgSend;
+    x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x26 = 0;
     w24 = 0;
     Block_literal_smb block8;
@@ -414,7 +414,7 @@ L15: // 0x10009c29c
     x2 = @"REPLY";
     x3 = @"";
     x4 = @"Main";
-    x23 = objc_msgSend;
+    x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x8 = 0;
 
 L16: // 0x10009c2c0
@@ -478,7 +478,7 @@ L9: // 0x10009c190
     x4 = @"Main";
 
 L10: // 0x10009c1a0
-    x23 = objc_msgSend;
+    x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x26 = 0;
     Block_literal_sm block6; //at sp+0x190
     block6.isa = &_NSConcreteStackBlock;
