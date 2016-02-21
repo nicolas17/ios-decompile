@@ -255,19 +255,16 @@ L2: // 0x10009bdd8
 jump_B_0: // 0x10009be08
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (!swipe) goto L11;
+    if (!swipe) {
+        x2 = @"MOVE_SINGULAR";
+        x3 = @"";
+        x4 = @"Main";
+    } else {
+        x2 = @"PREVIEW_SWIPE_MOVE";
+        x3 = @"";
+        x4 = @"Main-OrbHW";
+    }
 
-    x2 = @"PREVIEW_SWIPE_MOVE";
-    x3 = @"";
-    x4 = @"Main-OrbHW";
-    goto L12;
-
-L11: // 0x10009c1dc
-    x2 = @"MOVE_SINGULAR";
-    x3 = @"";
-    x4 = @"Main";
-
-L12: // 0x10009c1f4
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x26 = 0;
     w24 = 0;
@@ -299,16 +296,12 @@ jump_A_3: // 0x10009be88
 
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (w23 & (1<<4) == 0) goto L4;
+    if (w23 & (1<<4) == 0) {
+        x2 = @"MARK_EMAIL_FLAGGED";
+    } else {
+        x2 = @"MARK_EMAIL_UNFLAGGED";
+    }
 
-    x2 = @"MARK_EMAIL_UNFLAGGED";
-
-    goto L5;
-
-L4: // 0x10009bf28
-    x2 = @"MARK_EMAIL_FLAGGED";
-
-L5: // 0x10009bf30
     x3 = @"";
     x4 = @"Main";
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
@@ -328,16 +321,12 @@ jump_A_5: // 0x10009becc
     x26 = [self->_mall deleteMovesToTrashForMessage: message];
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (w26 == 0) goto L5a;
+    if (w26 == 0) {
+        x2 = @"PREVIEW_SWIPE_DELETE";
+    } else {
+        x2 = @"PREVIEW_SWIPE_TRASH";
+    }
 
-    // 0x10009bf0c
-    x2 = @"PREVIEW_SWIPE_TRASH";
-    goto L5b;
-
-L5a: // 0x10009bf7c
-    x2 = @"PREVIEW_SWIPE_DELETE";
-
-L5b: // 0x10009bf84
     x3 = @"";
     x4 = @"Main-OrbHW";
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
@@ -370,15 +359,12 @@ jump_B_3: // 0x10009bfe4
     x25 = x23 & 1; //potentially useless?
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (w23 & 1 != 0) goto L13;
+    if (w23 & 1 != 0) {
+        x2 = @"NOTIFY_ME_STOP";
+    } else {
+        x2 = @"NOTIFY_ME_ELLIPSIS";
+    }
 
-    x2 = @"NOTIFY_ME_ELLIPSIS";
-    goto L14;
-
-L13: // 0x10009c238
-    x2 = @"NOTIFY_ME_STOP";
-
-L14: // 0x10009c240
     x3 = @"";
     x4 = @"Main";
     x23 = objc_msgSend(x0,x1,x2,x3,x4);
@@ -401,23 +387,20 @@ jump_B_5: // 0x10009c028
     x23 = [message canReplyAll];
     x0 = [NSBundle mainBundle];
     x1 = @selector(localizedStringForKey:value:table:);
-    if (w23 == 0) goto L15;
+    if (w23 == 0) {
+        x2 = @"REPLY";
+        x3 = @"";
+        x4 = @"Main";
+        x23 = objc_msgSend(x0,x1,x2,x3,x4);
+        x8 = 0;
+    } else {
+        x2 = @"REPLY_ALL";
+        x3 = @"";
+        x4 = @"Main";
+        x23 = objc_msgSend(x0,x1,x2,x3,x4);
+        w8 = 0x1;
+    }
 
-    x2 = @"REPLY_ALL";
-    x3 = @"";
-    x4 = @"Main";
-    x23 = objc_msgSend(x0,x1,x2,x3,x4);
-    w8 = 0x1;
-    goto L16;
-
-L15: // 0x10009c29c
-    x2 = @"REPLY";
-    x3 = @"";
-    x4 = @"Main";
-    x23 = objc_msgSend(x0,x1,x2,x3,x4);
-    x8 = 0;
-
-L16: // 0x10009c2c0
     x26 = 0;
     w24 = 0;
     Block_literal_sml block9;
