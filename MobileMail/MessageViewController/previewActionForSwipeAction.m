@@ -212,7 +212,7 @@ L1: // 0x10009bd4c
     if ((unsigned)x8 > 1) goto L2;
 
     //0x10009bd54
-    x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_ARCHIVE", @"Main-OrbHW", @"");
+    x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_ARCHIVE", @"Main-OrbHW", nil);
 
     w24 = 0;
     Block_literal_smxs block1;
@@ -390,7 +390,7 @@ Msg_Reply: // 0x10009c028
     goto jump_B_124;
 
 Msg_Forward: // 0x10009c084
-    x23 = NSLocalizedStringFromTable(@"FORWARD", @"Main", @"");
+    x23 = NSLocalizedStringFromTable(@"FORWARD", @"Main", nil);
     x26 = 0;
     w24 = 0;
     Block_literal_sm block4; // at sp+0x38
@@ -405,7 +405,7 @@ Msg_Forward: // 0x10009c084
     goto jump_B_124;
 
 Msg_Junk: // 0x10009c0f8
-    x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_JUNK", @"Main", @"");
+    x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_JUNK", @"Main", nil);
     x26 = 0;
     w24 = 0;
     Block_literal_sm block5; //at sp+0x8
