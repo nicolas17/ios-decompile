@@ -248,9 +248,9 @@ L2: // 0x10009bdd8
 
 Msg_Move: // 0x10009be08
     if (!swipe) {
-        x23 = [[NSBundle mainBundle] localizedStringForKey: @"MOVE_SINGULAR" value: @"" table: @"Main"];
+        x23 = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
     } else {
-        x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_MOVE" value: @"" table: @"Main-OrbHW"];
+        x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MOVE", @"Main-OrbHW", nil);
     }
 
     x26 = 0;
@@ -272,15 +272,15 @@ Toggle_Read: // 0x10009be44
     x24 = x0 & 0x1;
     if (!swipe) {
         if (x24 == 0) {
-            x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_AS_READ" value: @"" table: @"Main"];
+            x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_AS_READ", @"Main", nil);
         } else {
-            x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_UNREAD" value: @"" table: @"Main"];
+            x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_UNREAD", @"Main", nil);
         }
     } else {
         if (!x24) {
-            x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_MARK_AS_READ" value: @"" table: @"Main-OrbHW"];
+            x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_READ", @"Main-OrbHW", nil);
         } else {
-            x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_MARK_AS_UNREAD" value: @"" table: @"Main-OrbHW"];
+            x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_UNREAD", @"Main-OrbHW", nil);
         }
     }
     x26 = 0;
@@ -300,9 +300,9 @@ Toggle_Flag: // 0x10009be88
     x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
 
     if (w23 & (1<<4) == 0) {
-        x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_FLAGGED" value: @"" table: @"Main"];
+        x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_FLAGGED", @"Main", nil);
     } else {
-        x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_UNFLAGGED" value: @"" table: @"Main"];
+        x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_UNFLAGGED", @"Main", nil);
     }
 
     x26 = 0;
@@ -320,9 +320,9 @@ Toggle_Flag: // 0x10009be88
 Msg_Delete: // 0x10009becc
     x26 = [self->_mall deleteMovesToTrashForMessage: message];
     if (w26 == 0) {
-        x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_DELETE" value: @"" table: @"Main-OrbHW"];
+        x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_DELETE", @"Main-OrbHW", nil);
     } else {
-        x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_TRASH" value: @"" table: @"Main-OrbHW"];
+        x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_TRASH", @"Main-OrbHW", nil);
     }
 
     x24 = 0;
@@ -345,9 +345,9 @@ Toggle_Notify: // 0x10009bfe4
     x23 = [message conversationFlags];
     x25 = x23 & 1; //potentially useless?
     if (w23 & 1 != 0) {
-        x23 = [[NSBundle mainBundle] localizedStringForKey: @"NOTIFY_ME_STOP" value:@"" table:@"Main"];
+        x23 = NSLocalizedStringFromTable(@"NOTIFY_ME_STOP", @"Main", nil);
     } else {
-        x23 = [[NSBundle mainBundle] localizedStringForKey: @"NOTIFY_ME_ELLIPSIS" value:@"" table:@"Main"];
+        x23 = NSLocalizedStringFromTable(@"NOTIFY_ME_ELLIPSIS", @"Main", nil);
     }
 
     x26 = 0;
@@ -368,10 +368,10 @@ Toggle_Notify: // 0x10009bfe4
 Msg_Reply: // 0x10009c028
     x23 = [message canReplyAll];
     if (w23 == 0) {
-        x23 = [[NSBundle mainBundle] localizedStringForKey: @"REPLY" value:@"" table:@"Main"];
+        x23 = NSLocalizedStringFromTable(@"REPLY", @"Main", nil);
         x8 = 0;
     } else {
-        x23 = [[NSBundle mainBundle] localizedStringForKey: @"REPLY_ALL" value:@"" table:@"Main"];
+        x23 = NSLocalizedStringFromTable(@"REPLY_ALL", @"Main", nil);
         w8 = 0x1;
     }
 
