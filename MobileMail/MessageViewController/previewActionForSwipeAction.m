@@ -247,19 +247,12 @@ L2: // 0x10009bdd8
     }
 
 Msg_Move: // 0x10009be08
-    x0 = [NSBundle mainBundle];
-    x1 = @selector(localizedStringForKey:value:table:);
     if (!swipe) {
-        x2 = @"MOVE_SINGULAR";
-        x3 = @"";
-        x4 = @"Main";
+        x23 = [[NSBundle mainBundle] localizedStringForKey: @"MOVE_SINGULAR" value: @"" table: @"Main"];
     } else {
-        x2 = @"PREVIEW_SWIPE_MOVE";
-        x3 = @"";
-        x4 = @"Main-OrbHW";
+        x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_MOVE" value: @"" table: @"Main-OrbHW"];
     }
 
-    x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x26 = 0;
     w24 = 0;
     Block_literal_msx block7;
@@ -313,17 +306,12 @@ Toggle_Flag: // 0x10009be88
     x23 = [message messageFlags];
     x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
 
-    x0 = [NSBundle mainBundle];
-    x1 = @selector(localizedStringForKey:value:table:);
     if (w23 & (1<<4) == 0) {
-        x2 = @"MARK_EMAIL_FLAGGED";
+        x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_FLAGGED" value: @"" table: @"Main"];
     } else {
-        x2 = @"MARK_EMAIL_UNFLAGGED";
+        x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_UNFLAGGED" value: @"" table: @"Main"];
     }
 
-    x3 = @"";
-    x4 = @"Main";
-    x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x26 = 0;
     Block_literal_sm block2; // at sp+0x1c0
     block2.isa = &_NSConcreteStackBlock;
@@ -338,17 +326,11 @@ Toggle_Flag: // 0x10009be88
 
 Msg_Delete: // 0x10009becc
     x26 = [self->_mall deleteMovesToTrashForMessage: message];
-    x0 = [NSBundle mainBundle];
-    x1 = @selector(localizedStringForKey:value:table:);
     if (w26 == 0) {
-        x2 = @"PREVIEW_SWIPE_DELETE";
+        x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_DELETE" value: @"" table: @"Main-OrbHW"];
     } else {
-        x2 = @"PREVIEW_SWIPE_TRASH";
+        x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_TRASH" value: @"" table: @"Main-OrbHW"];
     }
-
-    x3 = @"";
-    x4 = @"Main-OrbHW";
-    x23 = objc_msgSend(x0,x1,x2,x3,x4);
 
     x24 = 0;
     Block_literal_smxsm block3; // at sp+0x150
@@ -369,17 +351,12 @@ Msg_Delete: // 0x10009becc
 Toggle_Notify: // 0x10009bfe4
     x23 = [message conversationFlags];
     x25 = x23 & 1; //potentially useless?
-    x0 = [NSBundle mainBundle];
-    x1 = @selector(localizedStringForKey:value:table:);
     if (w23 & 1 != 0) {
-        x2 = @"NOTIFY_ME_STOP";
+        x23 = [[NSBundle mainBundle] localizedStringForKey: @"NOTIFY_ME_STOP" value:@"" table:@"Main"];
     } else {
-        x2 = @"NOTIFY_ME_ELLIPSIS";
+        x23 = [[NSBundle mainBundle] localizedStringForKey: @"NOTIFY_ME_ELLIPSIS" value:@"" table:@"Main"];
     }
 
-    x3 = @"";
-    x4 = @"Main";
-    x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x26 = 0;
     w24 = 0;
     Block_literal_smb block8;
@@ -397,19 +374,11 @@ Toggle_Notify: // 0x10009bfe4
 
 Msg_Reply: // 0x10009c028
     x23 = [message canReplyAll];
-    x0 = [NSBundle mainBundle];
-    x1 = @selector(localizedStringForKey:value:table:);
     if (w23 == 0) {
-        x2 = @"REPLY";
-        x3 = @"";
-        x4 = @"Main";
-        x23 = objc_msgSend(x0,x1,x2,x3,x4);
+        x23 = [[NSBundle mainBundle] localizedStringForKey: @"REPLY" value:@"" table:@"Main"];
         x8 = 0;
     } else {
-        x2 = @"REPLY_ALL";
-        x3 = @"";
-        x4 = @"Main";
-        x23 = objc_msgSend(x0,x1,x2,x3,x4);
+        x23 = [[NSBundle mainBundle] localizedStringForKey: @"REPLY_ALL" value:@"" table:@"Main"];
         w8 = 0x1;
     }
 
