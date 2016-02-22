@@ -270,26 +270,19 @@ Msg_Move: // 0x10009be08
 Toggle_Read: // 0x10009be44
     x0 = [message messageFlags];
     x24 = x0 & 0x1;
-    x0 = [NSBundle mainBundle];
-    x1 = @selector(localizedStringForKey:value:table:);
     if (!swipe) {
         if (x24 == 0) {
-            x2 = @"MARK_EMAIL_AS_READ";
+            x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_AS_READ" value: @"" table: @"Main"];
         } else {
-            x2 = @"MARK_EMAIL_UNREAD";
+            x23 = [[NSBundle mainBundle] localizedStringForKey: @"MARK_EMAIL_UNREAD" value: @"" table: @"Main"];
         }
-        x3 = @"";
-        x4 = @"Main";
     } else {
         if (!x24) {
-            x2 = @"PREVIEW_SWIPE_MARK_AS_READ";
+            x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_MARK_AS_READ" value: @"" table: @"Main-OrbHW"];
         } else {
-            x2 = @"PREVIEW_SWIPE_MARK_AS_UNREAD";
+            x23 = [[NSBundle mainBundle] localizedStringForKey: @"PREVIEW_SWIPE_MARK_AS_UNREAD" value: @"" table: @"Main-OrbHW"];
         }
-        x3 = @"";
-        x4 = @"Main-OrbHW";
     }
-    x23 = objc_msgSend(x0,x1,x2,x3,x4);
     x26 = 0;
     Block_literal_sm block6; //at sp+0x190
     block6.isa = &_NSConcreteStackBlock;
