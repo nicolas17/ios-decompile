@@ -190,6 +190,8 @@ static struct Block_descriptor block_descriptor_9 = {
     x21 = message
     x20 = swipe
     */
+    int64_t x0,x5,x8,x20,x23,x24,x25,x26,x27;
+    int32_t w8,w20,w23,w24,w25,w26;
 
     x25 = [self presentingViewController];
     if (x25 == 0) {
