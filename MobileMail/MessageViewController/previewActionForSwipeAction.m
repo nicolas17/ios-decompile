@@ -416,8 +416,8 @@ jump_B_124: // 0x10009c2f8
         x20 = 0;
         x5 = 0;
     } else {
-        x20 = [MFSwipeActionUtilities defaultColorForAction: action];
-        x5 = [MFSwipeActionUtilities defaultIconForAction: action alternate: x24];
+        x20 = [MFSwipeActionUtilities defaultColorForSwipeAction: action];
+        x5 = [MFSwipeActionUtilities defaultIconForSwipeAction: action alternate: x24];
     }
     x0 = [UIPreviewAction _actionWithTitle:x23 style:x26 color:x20 image:x5 handler:x27];
 
