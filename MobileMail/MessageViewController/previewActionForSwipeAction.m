@@ -197,7 +197,7 @@ static struct Block_descriptor block_descriptor_9 = {
     }
 
     // reusedBlockFlags is in w28, apparently throughout the function
-    reusedBlockFlags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_SIGNATURE | BLOCK_HAS_EXTENDED_LAYOUT;
+    int reusedBlockFlags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_SIGNATURE | BLOCK_HAS_EXTENDED_LAYOUT;
     x8 = action - 5;
     if (action > 5) goto L1;
 
