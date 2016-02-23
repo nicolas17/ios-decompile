@@ -266,7 +266,7 @@ Msg_Move: // 0x10009be08
     block7.descriptor = &block_descriptor_7;
     block7.captured_message = message;
     block7.captured_self = self;
-    block7.captured_xxx = xxx;
+    block7.captured_xxx = x25;
     x27 = &block7;
     goto jump_B_124;
 
@@ -337,7 +337,7 @@ Msg_Delete: // 0x10009becc
     block3.descriptor = &block_descriptor_3;
     block3.captured_self = self;
     block3.captured_message = message;
-    block3.captured_xxx = xxx;
+    block3.captured_xxx = x25;
     block3.captured_swipe = swipe; // byte
     block3.captured_movesToTrash = w26; // byte, from deleteMovesToTrashForMessage
     x27 = &block3;
