@@ -11,6 +11,8 @@
 #import <MobileMail/MFMailMessage+MobileMail.h>
 
 #import <UIKit/UIKit.h>
+#import <UIKit/UIPreviewAction+internal.h>
+
 #import "common/BlockABI.h"
 
 struct Block_literal_smxs {
