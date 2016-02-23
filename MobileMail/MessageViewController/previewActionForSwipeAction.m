@@ -5,6 +5,7 @@
  * Decompilation (c) 2016 Nicolás Alvarez
  */
 
+#include <MobileMail/MessageViewController.h>
 #include <UIKit/UIKit.h>
 #include "common/BlockABI.h"
 
