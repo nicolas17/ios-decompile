@@ -9,6 +9,7 @@
 #import <MobileMail/MailAppController.h>
 #import <Message/MFMailMessage.h>
 #import <MobileMail/MFMailMessage+MobileMail.h>
+#import <MobileMail/MFSwipeActionUtilities.h>
 
 #import <UIKit/UIKit.h>
 #import <UIKit/UIPreviewAction+internal.h>
