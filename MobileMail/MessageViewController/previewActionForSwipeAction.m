@@ -24,6 +24,9 @@ struct Block_descriptor {
     // required ABI.2010.3.16
     const char *signature;                         // IFF (1<<30)
 };
+typedef void (*BlockCopyHelper)(void *dst, void *src);
+typedef void (*BlockDisposeHelper)(void *src);
+typedef void (*BlockInvoke)(void *block, ...);
 
 struct Block_literal_smxs {
     void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock
@@ -98,8 +101,8 @@ struct Block_literal_sml {
 static struct Block_descriptor block_descriptor_1 = {
     0,
     sizeof(struct Block_literal_smxs), // 0x39
-    0x000000010009cb10,
-    0x000000010009cb5c,
+    (BlockCopyHelper)0x000000010009cb10,
+    (BlockDisposeHelper)0x000000010009cb5c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -107,8 +110,8 @@ static struct Block_descriptor block_descriptor_1 = {
 static struct Block_descriptor block_descriptor_2 = {
     0,
     sizeof(struct Block_literal_sm), // 0x30
-    0x000000010009c3d0,
-    0x000000010009c40c,
+    (BlockCopyHelper)0x000000010009c3d0,
+    (BlockDisposeHelper)0x000000010009c40c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -116,8 +119,8 @@ static struct Block_descriptor block_descriptor_2 = {
 static struct Block_descriptor block_descriptor_3 = {
     0,
     sizeof(struct Block_literal_smxsm), // 0x3a
-    0x000000010009c7a4,
-    0x000000010009c7f0,
+    (BlockCopyHelper)0x000000010009c7a4,
+    (BlockDisposeHelper)0x000000010009c7f0,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -125,8 +128,8 @@ static struct Block_descriptor block_descriptor_3 = {
 static struct Block_descriptor block_descriptor_4 = {
     0,
     sizeof(struct Block_literal_sm), // 0x30
-    0x000000010009ce10,
-    0x000000010009ce4c,
+    (BlockCopyHelper)0x000000010009ce10,
+    (BlockDisposeHelper)0x000000010009ce4c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -134,8 +137,8 @@ static struct Block_descriptor block_descriptor_4 = {
 static struct Block_descriptor block_descriptor_5 = {
     0,
     sizeof(struct Block_literal_sm), // 0x30
-    0x000000010009ce98,
-    0x000000010009ced4,
+    (BlockCopyHelper)0x000000010009ce98,
+    (BlockDisposeHelper)0x000000010009ced4,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -143,8 +146,8 @@ static struct Block_descriptor block_descriptor_5 = {
 static struct Block_descriptor block_descriptor_6 = {
     0,
     sizeof(struct Block_literal_sm), // 0x30
-    0x000000010009c450,
-    0x000000010009c48c,
+    (BlockCopyHelper)0x000000010009c450,
+    (BlockDisposeHelper)0x000000010009c48c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -152,8 +155,8 @@ static struct Block_descriptor block_descriptor_6 = {
 static struct Block_descriptor block_descriptor_7 = {
     0,
     sizeof(struct Block_literal_msx), // 0x38
-    0x000000010009cc60,
-    0x000000010009ccac,
+    (BlockCopyHelper)0x000000010009cc60,
+    (BlockDisposeHelper)0x000000010009ccac,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -161,8 +164,8 @@ static struct Block_descriptor block_descriptor_7 = {
 static struct Block_descriptor block_descriptor_8 = {
     0,
     sizeof(struct Block_literal_smb), // 0x31
-    0x000000010009cd00,
-    0x000000010009cd3c,
+    (BlockCopyHelper)0x000000010009cd00,
+    (BlockDisposeHelper)0x000000010009cd3c,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -170,8 +173,8 @@ static struct Block_descriptor block_descriptor_8 = {
 static struct Block_descriptor block_descriptor_9 = {
     0,
     sizeof(struct Block_literal_sml), // 0x38
-    0x000000010009cd88,
-    0x000000010009cdc4,
+    (BlockCopyHelper)0x000000010009cd88,
+    (BlockDisposeHelper)0x000000010009cdc4,
     "v24@?0@\"UIPreviewAction\"8@\"UIViewController\"16"
 };
 
@@ -219,7 +222,7 @@ L1: // 0x10009bd4c
     block1.isa = &_NSConcreteStackBlock;
     block1.flags = reusedBlockFlags;
     block1.reserved = 0;
-    block1.invoke = 0x10009c82c;
+    block1.invoke = (BlockInvoke)0x10009c82c;
     block1.descriptor = &block_descriptor_1;
     block1.captured_self = self;
     block1.captured_message = message;
@@ -259,7 +262,7 @@ Msg_Move: // 0x10009be08
     block7.isa = &_NSConcreteStackBlock;
     block7.flags = reusedBlockFlags;
     block7.reserved = 0;
-    block7.invoke = 0x10009cb98;
+    block7.invoke = (BlockInvoke)0x10009cb98;
     block7.descriptor = &block_descriptor_7;
     block7.captured_message = message;
     block7.captured_self = self;
@@ -288,7 +291,7 @@ Toggle_Read: // 0x10009be44
     block6.isa = &_NSConcreteStackBlock;
     block6.flags = reusedBlockFlags;
     block6.reserved = 0;
-    block6.invoke = 0x10009c43c;
+    block6.invoke = (BlockInvoke)0x10009c43c;
     block6.descriptor = &block_descriptor_6;
     block6.captured_self = self;
     block6.captured_message = message;
@@ -310,7 +313,7 @@ Toggle_Flag: // 0x10009be88
     block2.isa = &_NSConcreteStackBlock;
     block2.flags = reusedBlockFlags;
     block2.reserved = 0;
-    block2.invoke = 0x10009c3bc;
+    block2.invoke = (BlockInvoke)0x10009c3bc;
     block2.descriptor = &block_descriptor_2;
     block2.captured_self = self;
     block2.captured_message = message;
@@ -330,7 +333,7 @@ Msg_Delete: // 0x10009becc
     block3.isa = &_NSConcreteStackBlock;
     block3.flags = reusedBlockFlags;
     block3.reserved = 0;
-    block3.invoke = 0x10009c4bc;
+    block3.invoke = (BlockInvoke)0x10009c4bc;
     block3.descriptor = &block_descriptor_3;
     block3.captured_self = self;
     block3.captured_message = message;
@@ -356,7 +359,7 @@ Toggle_Notify: // 0x10009bfe4
     block8.isa = &_NSConcreteStackBlock;
     block8.flags = reusedBlockFlags;
     block8.reserved = 0;
-    block8.invoke = 0x10009cce8;
+    block8.invoke = (BlockInvoke)0x10009cce8;
     block8.descriptor = &block_descriptor_8;
     block8.captured_self = self;
     block8.captured_message = message;
@@ -381,7 +384,7 @@ Msg_Reply: // 0x10009c028
     block9.isa = &_NSConcreteStackBlock;
     block9.flags = reusedBlockFlags;
     block9.reserved = 0;
-    block9.invoke = 0x10009cd6c;
+    block9.invoke = (BlockInvoke)0x10009cd6c;
     block9.descriptor = &block_descriptor_9;
     block9.captured_self = self;
     block9.captured_message = message;
@@ -397,7 +400,7 @@ Msg_Forward: // 0x10009c084
     block4.isa = &_NSConcreteStackBlock;
     block4.flags = reusedBlockFlags;
     block4.reserved = 0;
-    block4.invoke = 0x10009cdf4;
+    block4.invoke = (BlockInvoke)0x10009cdf4;
     block4.descriptor = &block_descriptor_4;
     block4.captured_self = self;
     block4.captured_message = message;
@@ -412,7 +415,7 @@ Msg_Junk: // 0x10009c0f8
     block5.isa = &_NSConcreteStackBlock;
     block5.flags = reusedBlockFlags;
     block5.reserved = 0;
-    block5.invoke = 0x10009ce7c;
+    block5.invoke = (BlockInvoke)0x10009ce7c;
     block5.descriptor = &block_descriptor_5;
     block5.captured_self = self;
     block5.captured_message = message;
