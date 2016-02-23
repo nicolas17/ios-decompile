@@ -6,9 +6,13 @@
  * Decompilation (c) 2016 Nicolás Alvarez
  */
 
+#include <MobileMail/MessageMiniMall.h>
 #include <UIKit/UIViewController.h>
 
 @interface MessageViewController : UIViewController
+
+@property (nonatomic,retain) MessageMiniMall* mall;
+
 -(UIPreviewAction*)_previewActionForSwipeAction: (unsigned long long)action
                                     withMessage: (id)message
                                        forSwipe: (BOOL)swipe;
