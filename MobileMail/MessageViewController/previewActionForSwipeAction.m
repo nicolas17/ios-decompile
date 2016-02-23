@@ -220,7 +220,7 @@ L1: // 0x10009bd4c
     block1.flags = reusedBlockFlags;
     block1.reserved = 0;
     block1.invoke = 0x10009c82c;
-    block1.descriptor = block_descriptor_1;
+    block1.descriptor = &block_descriptor_1;
     block1.captured_self = self;
     block1.captured_message = message;
     block1.captured_xxx = x25;
