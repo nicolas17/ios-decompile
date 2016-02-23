@@ -5,9 +5,11 @@
  * Decompilation (c) 2016 Nicolás Alvarez
  */
 
-#import <MobileMail/MailAppController.h>
 #import <MobileMail/MessageViewController.h>
+#import <MobileMail/MailAppController.h>
 #import <Message/MFMailMessage.h>
+#import <MobileMail/MFMailMessage+MobileMail.h>
+
 #import <UIKit/UIKit.h>
 #import "common/BlockABI.h"
 
