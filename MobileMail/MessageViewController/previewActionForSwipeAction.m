@@ -286,7 +286,7 @@ Toggle_Flag: // 0x10009be88
     x23 = [message messageFlags];
     x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
 
-    if (w23 & (1<<4) == 0) {
+    if ((w23 & (1<<4)) == 0) {
         x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_FLAGGED", @"Main", nil);
     } else {
         x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_UNFLAGGED", @"Main", nil);
@@ -331,7 +331,7 @@ Msg_Delete: // 0x10009becc
 Toggle_Notify: // 0x10009bfe4
     x23 = [message conversationFlags];
     x25 = x23 & 1; //potentially useless?
-    if (w23 & 1 != 0) {
+    if ((w23 & 1) != 0) {
         x23 = NSLocalizedStringFromTable(@"NOTIFY_ME_STOP", @"Main", nil);
     } else {
         x23 = NSLocalizedStringFromTable(@"NOTIFY_ME_ELLIPSIS", @"Main", nil);
