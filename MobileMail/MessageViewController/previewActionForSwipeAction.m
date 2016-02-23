@@ -363,7 +363,7 @@ Toggle_Notify: // 0x10009bfe4
     block8.descriptor = &block_descriptor_8;
     block8.captured_self = self;
     block8.captured_message = message;
-    w8 = w25 xor 0x1;
+    w8 = w25 ^ 0x1;
     block8.captured_boolUnk = w8;
     x27 = &block8;
     goto jump_B_124;
