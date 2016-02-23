@@ -5,11 +5,11 @@
  * Decompilation (c) 2016 Nicolás Alvarez
  */
 
-#include <MobileMail/MailAppController.h>
-#include <MobileMail/MessageViewController.h>
-#include <Message/MFMailMessage.h>
-#include <UIKit/UIKit.h>
-#include "common/BlockABI.h"
+#import <MobileMail/MailAppController.h>
+#import <MobileMail/MessageViewController.h>
+#import <Message/MFMailMessage.h>
+#import <UIKit/UIKit.h>
+#import "common/BlockABI.h"
 
 struct Block_literal_smxs {
     void *isa; // initialized to &_NSConcreteStackBlock or &_NSConcreteGlobalBlock

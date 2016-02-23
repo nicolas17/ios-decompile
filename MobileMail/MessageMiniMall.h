@@ -6,7 +6,7 @@
  * Decompilation (c) 2016 Nicolás Alvarez
  */
 
-#include <Foundation/Foundation.h>
+#import <Foundation/Foundation.h>
 
 @interface MessageMiniMall : NSObject
 -(BOOL)deleteMovesToTrashForMessage:(id)message;

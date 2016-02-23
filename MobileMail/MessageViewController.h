@@ -6,8 +6,8 @@
  * Decompilation (c) 2016 Nicolás Alvarez
  */
 
-#include <MobileMail/MessageMiniMall.h>
-#include <UIKit/UIViewController.h>
+#import <MobileMail/MessageMiniMall.h>
+#import <UIKit/UIViewController.h>
 
 @class MFMailMessage;
 

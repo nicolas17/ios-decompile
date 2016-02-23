@@ -6,7 +6,7 @@
  * Decompilation (c) 2016 Nicolás Alvarez
  */
 
-#include <UIKit/UIApplication.h>
+#import <UIKit/UIApplication.h>
 
 @class MFApplicationSceneController;
 
