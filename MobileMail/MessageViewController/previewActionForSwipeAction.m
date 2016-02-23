@@ -5,6 +5,7 @@
  * Decompilation (c) 2016 Nicolás Alvarez
  */
 
+#include <MobileMail/MailAppController.h>
 #include <MobileMail/MessageViewController.h>
 #include <UIKit/UIKit.h>
 #include "common/BlockABI.h"
@@ -176,7 +177,7 @@ static struct Block_descriptor block_descriptor_9 = {
 
     x25 = [self presentingViewController];
     if (x25 == 0) {
-        x25 = [[UIApplication sharedApplication] sceneController];
+        x25 = [(MailAppController*)[UIApplication sharedApplication] sceneController];
     }
 
     // reusedBlockFlags is in w28, apparently throughout the function
