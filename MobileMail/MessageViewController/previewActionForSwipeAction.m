@@ -7,6 +7,7 @@
 
 #include <MobileMail/MailAppController.h>
 #include <MobileMail/MessageViewController.h>
+#include <Message/MFMailMessage.h>
 #include <UIKit/UIKit.h>
 #include "common/BlockABI.h"
 
@@ -163,7 +164,7 @@ static struct Block_descriptor block_descriptor_9 = {
 @implementation MessageViewController
 
 -(UIPreviewAction*)_previewActionForSwipeAction: (unsigned long long)action
-                                    withMessage: (id)message
+                                    withMessage: (MFMailMessage*)message
                                        forSwipe: (BOOL)swipe
 {
     /*

@@ -9,11 +9,13 @@
 #include <MobileMail/MessageMiniMall.h>
 #include <UIKit/UIViewController.h>
 
+@class MFMailMessage;
+
 @interface MessageViewController : UIViewController
 
 @property (nonatomic,retain) MessageMiniMall* mall;
 
 -(UIPreviewAction*)_previewActionForSwipeAction: (unsigned long long)action
-                                    withMessage: (id)message
+                                    withMessage: (MFMailMessage*)message
                                        forSwipe: (BOOL)swipe;
 @end
