@@ -270,9 +270,9 @@ static struct Block_descriptor block_descriptor_9 = {
         handler = &block7;
         break;
 
-    case 5:
-        x26 = [self->_mall deleteMovesToTrashForMessage: message];
-        if (w26) {
+    case 5: {
+        BOOL movesToTrash = [self->_mall deleteMovesToTrashForMessage: message];
+        if (movesToTrash) {
             title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_TRASH", @"Main-OrbHW", nil);
         } else {
             title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_DELETE", @"Main-OrbHW", nil);
@@ -289,10 +289,11 @@ static struct Block_descriptor block_descriptor_9 = {
         block3.captured_message = message;
         block3.captured_xxx = parentViewControllerThing;
         block3.captured_swipe = swipe; // byte
-        block3.captured_movesToTrash = w26; // byte, from deleteMovesToTrashForMessage
+        block3.captured_movesToTrash = movesToTrash; // byte
         handler = &block3;
         w26 = 0x2; // orr w26, wzr, #0x2
         break;
+    }
 
     case 6:
         title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_ARCHIVE", @"Main-OrbHW", nil);
