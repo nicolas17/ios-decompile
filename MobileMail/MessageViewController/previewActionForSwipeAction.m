@@ -249,7 +249,25 @@ static struct Block_descriptor block_descriptor_9 = {
         break;
 
     case 4:
-        goto L2;
+        if (!swipe) {
+            title = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
+        } else {
+            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MOVE", @"Main-OrbHW", nil);
+        }
+
+        x26 = 0;
+        w24 = 0;
+        struct Block_literal_msx block7;
+        block7.isa = &_NSConcreteStackBlock;
+        block7.flags = reusedBlockFlags;
+        block7.reserved = 0;
+        block7.invoke = (BlockInvoke)0x10009cb98;
+        block7.descriptor = &block_descriptor_7;
+        block7.captured_message = message;
+        block7.captured_self = self;
+        block7.captured_xxx = x25;
+        handler = &block7;
+        break;
 
     case 5:
         x26 = [self->_mall deleteMovesToTrashForMessage: message];
@@ -294,38 +312,6 @@ static struct Block_descriptor block_descriptor_9 = {
         break;
 
     case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-        goto L2;
-    }
-    goto jump_B_124;
-
-L2:
-    switch (action-4) {
-    case 0:
-        if (!swipe) {
-            title = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
-        } else {
-            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MOVE", @"Main-OrbHW", nil);
-        }
-
-        x26 = 0;
-        w24 = 0;
-        struct Block_literal_msx block7;
-        block7.isa = &_NSConcreteStackBlock;
-        block7.flags = reusedBlockFlags;
-        block7.reserved = 0;
-        block7.invoke = (BlockInvoke)0x10009cb98;
-        block7.descriptor = &block_descriptor_7;
-        block7.captured_message = message;
-        block7.captured_self = self;
-        block7.captured_xxx = x25;
-        handler = &block7;
-        break;
-
-    case 3:
         x23 = [message conversationFlags];
         x25 = x23 & 1; //potentially useless?
         if ((w23 & 1) != 0) {
@@ -349,7 +335,7 @@ L2:
         handler = &block8;
         break;
 
-    case 5:
+    case 9:
         x23 = [message canReplyAll];
         if (w23 == 0) {
             title = NSLocalizedStringFromTable(@"REPLY", @"Main", nil);
@@ -373,7 +359,7 @@ L2:
         handler = &block9;
         break;
 
-    case 6:
+    case 10:
         title = NSLocalizedStringFromTable(@"FORWARD", @"Main", nil);
         x26 = 0;
         w24 = 0;
@@ -388,7 +374,7 @@ L2:
         handler = &block4;
         break;
 
-    case 7:
+    case 11:
         title = NSLocalizedStringFromTable(@"MARK_EMAIL_JUNK", @"Main", nil);
         x26 = 0;
         w24 = 0;
@@ -403,10 +389,7 @@ L2:
         handler = &block5;
         break;
     }
-    goto jump_B_124;
 
-
-jump_B_124: // 0x10009c2f8
     if (swipe == 0) {
         x20 = 0;
         x5 = 0;
