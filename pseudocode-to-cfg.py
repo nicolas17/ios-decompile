@@ -134,8 +134,7 @@ with open(args.filename, "r") as fp:
             if line.startswith('    }'):
                 state = STATE_IN_BLOCK
 
-        if state == STATE_IN_BLOCK:
-            current_block.content += line
+        current_block.content += line
 
 
 blocks[-1].is_last = True
