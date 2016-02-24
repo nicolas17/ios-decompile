@@ -192,7 +192,7 @@ static struct Block_descriptor block_descriptor_9 = {
     // reusedBlockFlags is in w28, apparently throughout the function
     int reusedBlockFlags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_SIGNATURE | BLOCK_HAS_EXTENDED_LAYOUT;
 
-    x23 = w24 = x26 = handler = 0;
+    w24 = x26 = handler = 0;
     title = nil;
 
     switch (action) {
