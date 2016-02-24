@@ -290,6 +290,8 @@ static struct Block_descriptor block_descriptor_9 = {
     goto jump_B_124;
 
 L1: // 0x10009bd4c
+    x23 = w24 = x26 = handler = 0;
+    title = nil;
     x8 = action - 5;
     if ((unsigned)x8 > 1) goto L2;
 
@@ -312,8 +314,6 @@ L1: // 0x10009bd4c
     goto jump_B_124;
 
 L2: // 0x10009bdd8
-    x23 = w24 = x26 = handler = 0;
-    title = nil;
     x8 = action - 4;
     if ((unsigned)x8 > 7) goto jump_B_124;
 
