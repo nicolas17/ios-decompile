@@ -277,22 +277,22 @@ static struct Block_descriptor block_descriptor_9 = {
         break;
 
     case 6:
-    title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_ARCHIVE", @"Main-OrbHW", nil);
+        title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_ARCHIVE", @"Main-OrbHW", nil);
 
-    w24 = 0;
-    struct Block_literal_smxs block1;
-    block1.isa = &_NSConcreteStackBlock;
-    block1.flags = reusedBlockFlags;
-    block1.reserved = 0;
-    block1.invoke = (BlockInvoke)0x10009c82c;
-    block1.descriptor = &block_descriptor_1;
-    block1.captured_self = self;
-    block1.captured_message = message;
-    block1.captured_xxx = x25;
-    block1.captured_swipe = swipe; // 8-bit
-    handler = &block1;
-    w26 = 0x2; // orr w26, wzr, #0x2
-    break;
+        w24 = 0;
+        struct Block_literal_smxs block1;
+        block1.isa = &_NSConcreteStackBlock;
+        block1.flags = reusedBlockFlags;
+        block1.reserved = 0;
+        block1.invoke = (BlockInvoke)0x10009c82c;
+        block1.descriptor = &block_descriptor_1;
+        block1.captured_self = self;
+        block1.captured_message = message;
+        block1.captured_xxx = x25;
+        block1.captured_swipe = swipe; // 8-bit
+        handler = &block1;
+        w26 = 0x2; // orr w26, wzr, #0x2
+        break;
 
     case 7:
     case 8:
