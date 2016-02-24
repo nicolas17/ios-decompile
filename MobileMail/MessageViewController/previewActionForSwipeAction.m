@@ -412,7 +412,7 @@ Msg_Junk: // 0x10009c0f8
     goto jump_B_124;
 
 jump_B_124: // 0x10009c2f8
-    if (w20 == 0) {
+    if (swipe == 0) {
         x20 = 0;
         x5 = 0;
     } else {
