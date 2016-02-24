@@ -195,15 +195,9 @@ static struct Block_descriptor block_descriptor_9 = {
     if (action > 5) goto L1;
 
     switch (action) {
-        case 0: return nil;
-        case 1: goto L1;          // 0x10009bd4c
-        case 2: goto Toggle_Read; // 0x10009be44
-        case 3: goto Toggle_Flag; // 0x10009be88
-        case 4: goto L1;          // 0x10009bd4c
-        case 5: goto Msg_Delete;  // 0x10009becc
-    }
-
-Toggle_Read: // 0x10009be44
+    case 0: return nil;
+    case 1: goto L1;          // 0x10009bd4c
+    case 2:
     x0 = [message messageFlags];
     x24 = x0 & 0x1;
     if (!swipe) {
@@ -229,9 +223,9 @@ Toggle_Read: // 0x10009be44
     block6.captured_self = self;
     block6.captured_message = message;
     handler = &block6;
-    goto jump_B_124;
+    break;
 
-Toggle_Flag: // 0x10009be88
+    case 3:
     x23 = [message messageFlags];
     x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
 
@@ -251,9 +245,10 @@ Toggle_Flag: // 0x10009be88
     block2.captured_self = self;
     block2.captured_message = message;
     handler = &block2;
-    goto jump_B_124;
+    break;
 
-Msg_Delete: // 0x10009becc
+    case 4: goto L1;          // 0x10009bd4c
+    case 5:
     x26 = [self->_mall deleteMovesToTrashForMessage: message];
     if (w26 == 0) {
         title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_DELETE", @"Main-OrbHW", nil);
@@ -275,6 +270,8 @@ Msg_Delete: // 0x10009becc
     block3.captured_movesToTrash = w26; // byte, from deleteMovesToTrashForMessage
     handler = &block3;
     w26 = 0x2; // orr w26, wzr, #0x2
+    break;
+    }
     goto jump_B_124;
 
 L1: // 0x10009bd4c
