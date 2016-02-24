@@ -178,10 +178,11 @@ static struct Block_descriptor block_descriptor_9 = {
     x21 = message
     x20 = swipe
     */
-    int64_t x0,x5,x8,x20,x23,x24,x25,x26,x27;
+    int64_t x0,x5,x8,x20,x23,x24,x25,x26;
     int32_t w8,w20,w23,w24,w25,w26;
 
     NSString* title;
+    void* handler; // this is a block pointer
 
     x25 = [self presentingViewController];
     if (x25 == 0) {
@@ -219,12 +220,12 @@ L1: // 0x10009bd4c
     block1.captured_message = message;
     block1.captured_xxx = x25;
     block1.captured_swipe = swipe; // 8-bit
-    x27 = &block1;
+    handler = &block1;
     w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
 
 L2: // 0x10009bdd8
-    x23 = w24 = x26 = x27 = 0;
+    x23 = w24 = x26 = handler = 0;
     title = nil;
     x8 = action - 4;
     if ((unsigned)x8 > 7) goto jump_B_124;
@@ -266,7 +267,7 @@ Toggle_Read: // 0x10009be44
     block6.descriptor = &block_descriptor_6;
     block6.captured_self = self;
     block6.captured_message = message;
-    x27 = &block6;
+    handler = &block6;
     goto jump_B_124;
 
 Toggle_Flag: // 0x10009be88
@@ -288,7 +289,7 @@ Toggle_Flag: // 0x10009be88
     block2.descriptor = &block_descriptor_2;
     block2.captured_self = self;
     block2.captured_message = message;
-    x27 = &block2;
+    handler = &block2;
     goto jump_B_124;
 
 Msg_Move: // 0x10009be08
@@ -309,7 +310,7 @@ Msg_Move: // 0x10009be08
     block7.captured_message = message;
     block7.captured_self = self;
     block7.captured_xxx = x25;
-    x27 = &block7;
+    handler = &block7;
     goto jump_B_124;
 
 Msg_Delete: // 0x10009becc
@@ -332,7 +333,7 @@ Msg_Delete: // 0x10009becc
     block3.captured_xxx = x25;
     block3.captured_swipe = swipe; // byte
     block3.captured_movesToTrash = w26; // byte, from deleteMovesToTrashForMessage
-    x27 = &block3;
+    handler = &block3;
     w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
 
@@ -357,7 +358,7 @@ Toggle_Notify: // 0x10009bfe4
     block8.captured_message = message;
     w8 = w25 ^ 0x1;
     block8.captured_boolUnk = w8;
-    x27 = &block8;
+    handler = &block8;
     goto jump_B_124;
 
 Msg_Reply: // 0x10009c028
@@ -381,7 +382,7 @@ Msg_Reply: // 0x10009c028
     block9.captured_self = self;
     block9.captured_message = message;
     block9.captured_ulongUnk = x8; // ?!
-    x27 = &block9;
+    handler = &block9;
     goto jump_B_124;
 
 Msg_Forward: // 0x10009c084
@@ -396,7 +397,7 @@ Msg_Forward: // 0x10009c084
     block4.descriptor = &block_descriptor_4;
     block4.captured_self = self;
     block4.captured_message = message;
-    x27 = &block4;
+    handler = &block4;
     goto jump_B_124;
 
 Msg_Junk: // 0x10009c0f8
@@ -411,7 +412,7 @@ Msg_Junk: // 0x10009c0f8
     block5.descriptor = &block_descriptor_5;
     block5.captured_self = self;
     block5.captured_message = message;
-    x27 = &block5;
+    handler = &block5;
     goto jump_B_124;
 
 jump_B_124: // 0x10009c2f8
@@ -422,7 +423,7 @@ jump_B_124: // 0x10009c2f8
         x20 = [MFSwipeActionUtilities defaultColorForSwipeAction: action];
         x5 = [MFSwipeActionUtilities defaultIconForSwipeAction: action alternate: x24];
     }
-    return [UIPreviewAction _actionWithTitle:title style:x26 color:x20 image:x5 handler:x27];
+    return [UIPreviewAction _actionWithTitle:title style:x26 color:x20 image:x5 handler:handler];
 }
 
 @end
