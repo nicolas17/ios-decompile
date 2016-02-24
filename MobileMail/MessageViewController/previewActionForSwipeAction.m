@@ -184,9 +184,9 @@ static struct Block_descriptor block_descriptor_9 = {
     NSString* title;
     void* handler; // this is a block pointer
 
-    x25 = [self presentingViewController];
-    if (x25 == 0) {
-        x25 = [(MailAppController*)[UIApplication sharedApplication] sceneController];
+    UIViewController* parentViewControllerThing = [self presentingViewController];
+    if (parentViewControllerThing == 0) {
+        parentViewControllerThing = [(MailAppController*)[UIApplication sharedApplication] sceneController];
     }
 
     // reusedBlockFlags is in w28, apparently throughout the function
@@ -265,7 +265,7 @@ static struct Block_descriptor block_descriptor_9 = {
         block7.descriptor = &block_descriptor_7;
         block7.captured_message = message;
         block7.captured_self = self;
-        block7.captured_xxx = x25;
+        block7.captured_xxx = parentViewControllerThing;
         handler = &block7;
         break;
 
@@ -286,7 +286,7 @@ static struct Block_descriptor block_descriptor_9 = {
         block3.descriptor = &block_descriptor_3;
         block3.captured_self = self;
         block3.captured_message = message;
-        block3.captured_xxx = x25;
+        block3.captured_xxx = parentViewControllerThing;
         block3.captured_swipe = swipe; // byte
         block3.captured_movesToTrash = w26; // byte, from deleteMovesToTrashForMessage
         handler = &block3;
@@ -305,7 +305,7 @@ static struct Block_descriptor block_descriptor_9 = {
         block1.descriptor = &block_descriptor_1;
         block1.captured_self = self;
         block1.captured_message = message;
-        block1.captured_xxx = x25;
+        block1.captured_xxx = parentViewControllerThing;
         block1.captured_swipe = swipe; // 8-bit
         handler = &block1;
         w26 = 0x2; // orr w26, wzr, #0x2
