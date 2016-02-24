@@ -6,12 +6,14 @@
 * classdump-dyld is licensed under GPLv3, Copyright © 2013-2016 by Elias Limneos.
 */
 
+#import <UIKit/UIColor.h>
+#import <UIKit/UIImage.h>
 
 @interface MFSwipeActionUtilities : NSObject
 +(unsigned long long)swipeActionForActionKey:(id)arg1 ;
 +(id)actionKeyForSwipeAction:(unsigned long long)arg1 ;
-+(id)defaultColorForSwipeAction:(unsigned long long)arg1 ;
-+(id)defaultIconForSwipeAction:(unsigned long long)arg1 alternate:(BOOL)arg2 ;
++(UIColor*)defaultColorForSwipeAction:(unsigned long long)arg1 ;
++(UIImage*)defaultIconForSwipeAction:(unsigned long long)arg1 alternate:(BOOL)arg2 ;
 +(BOOL)isActionDestructive:(unsigned long long)arg1 ;
 @end
 

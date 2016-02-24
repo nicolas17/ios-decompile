@@ -178,7 +178,7 @@ static struct Block_descriptor block_descriptor_9 = {
     x21 = message
     x20 = swipe
     */
-    int64_t x5,x8,x20,x23,x24,x25;
+    int64_t x8,x23,x24,x25;
     int32_t w8,w23,w24,w25;
 
     UIViewController* parentViewControllerThing = [self presentingViewController];
@@ -391,14 +391,16 @@ static struct Block_descriptor block_descriptor_9 = {
         break;
     }
 
+    UIColor* color;
+    UIImage* icon;
     if (swipe == 0) {
-        x20 = 0;
-        x5 = 0;
+        color = nil;
+        icon = nil;
     } else {
-        x20 = [MFSwipeActionUtilities defaultColorForSwipeAction: action];
-        x5 = [MFSwipeActionUtilities defaultIconForSwipeAction: action alternate: x24];
+        color = [MFSwipeActionUtilities defaultColorForSwipeAction: action];
+        icon = [MFSwipeActionUtilities defaultIconForSwipeAction: action alternate: x24];
     }
-    return [UIPreviewAction _actionWithTitle:title style:style color:x20 image:x5 handler:handler];
+    return [UIPreviewAction _actionWithTitle:title style:style color:color image:icon handler:handler];
 }
 
 @end

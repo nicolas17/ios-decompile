@@ -6,12 +6,12 @@
  * Decompilation (c) 2016 Nicolás Alvarez
  */
 
-#import <UIKit/UIViewController.h>
+#import <UIKit/UIKit.h>
 
 @interface UIPreviewAction (Internal)
 // private constructors
-+ (instancetype)_actionWithTitle:(NSString *)title style:(UIPreviewActionStyle)style color:(id)arg3 image:(id)arg4 handler:(void (^)(UIPreviewAction *action, UIViewController *previewViewController))handler;
-+ (instancetype)_actionWithTitle:(NSString *)title style:(UIPreviewActionStyle)style image:(id)arg3 handler:(void (^)(UIPreviewAction *action, UIViewController *previewViewController))handler;
-+ (instancetype)_actionWithTitle:(NSString *)title color:(id)arg2 image:(id)arg3 handler:(void (^)(UIPreviewAction *action, UIViewController *previewViewController))handler;
++ (instancetype)_actionWithTitle:(NSString *)title style:(UIPreviewActionStyle)style color:(UIColor*)color image:(UIImage*)image handler:(void (^)(UIPreviewAction *action, UIViewController *previewViewController))handler;
++ (instancetype)_actionWithTitle:(NSString *)title style:(UIPreviewActionStyle)style image:(UIImage*)image handler:(void (^)(UIPreviewAction *action, UIViewController *previewViewController))handler;
++ (instancetype)_actionWithTitle:(NSString *)title color:(UIColor*)color image:(UIImage*)image handler:(void (^)(UIPreviewAction *action, UIViewController *previewViewController))handler;
 
 @end
