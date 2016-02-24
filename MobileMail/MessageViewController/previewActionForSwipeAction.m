@@ -191,9 +191,8 @@ static struct Block_descriptor block_descriptor_9 = {
     x8 = action - 5;
     if (action > 5) goto L1;
 
-    x0 = 0;
     switch (action) {
-        case 0: goto jump_A_0;    // 0x10009c364
+        case 0: return nil;
         case 1: goto L1;          // 0x10009bd4c
         case 2: goto Toggle_Read; // 0x10009be44
         case 3: goto Toggle_Flag; // 0x10009be88
@@ -420,10 +419,7 @@ jump_B_124: // 0x10009c2f8
         x20 = [MFSwipeActionUtilities defaultColorForSwipeAction: action];
         x5 = [MFSwipeActionUtilities defaultIconForSwipeAction: action alternate: x24];
     }
-    x0 = [UIPreviewAction _actionWithTitle:x23 style:x26 color:x20 image:x5 handler:x27];
-
-jump_A_0: // 0x10009c364
-    return x0;
+    return [UIPreviewAction _actionWithTitle:x23 style:x26 color:x20 image:x5 handler:x27];
 }
 
 @end
