@@ -197,10 +197,6 @@ static struct Block_descriptor block_descriptor_9 = {
 
     switch (action) {
     case 0: return nil;
-    case 1:
-        x23 = w24 = x26 = handler = 0;
-        title = nil;
-        goto jump_B_124;
 
     case 2:
         x0 = [message messageFlags];
@@ -253,8 +249,6 @@ static struct Block_descriptor block_descriptor_9 = {
         break;
 
     case 4:
-        x23 = w24 = x26 = handler = 0;
-        title = nil;
         x8 = action - 4; // 0
         goto L2p;
 
