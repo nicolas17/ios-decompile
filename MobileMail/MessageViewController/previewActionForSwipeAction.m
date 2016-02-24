@@ -239,27 +239,6 @@ L2: // 0x10009bdd8
         case 7: goto Msg_Junk;      // 0x10009c0f8
     }
 
-Msg_Move: // 0x10009be08
-    if (!swipe) {
-        x23 = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
-    } else {
-        x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MOVE", @"Main-OrbHW", nil);
-    }
-
-    x26 = 0;
-    w24 = 0;
-    struct Block_literal_msx block7;
-    block7.isa = &_NSConcreteStackBlock;
-    block7.flags = reusedBlockFlags;
-    block7.reserved = 0;
-    block7.invoke = (BlockInvoke)0x10009cb98;
-    block7.descriptor = &block_descriptor_7;
-    block7.captured_message = message;
-    block7.captured_self = self;
-    block7.captured_xxx = x25;
-    x27 = &block7;
-    goto jump_B_124;
-
 Toggle_Read: // 0x10009be44
     x0 = [message messageFlags];
     x24 = x0 & 0x1;
@@ -308,6 +287,27 @@ Toggle_Flag: // 0x10009be88
     block2.captured_self = self;
     block2.captured_message = message;
     x27 = &block2;
+    goto jump_B_124;
+
+Msg_Move: // 0x10009be08
+    if (!swipe) {
+        x23 = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
+    } else {
+        x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MOVE", @"Main-OrbHW", nil);
+    }
+
+    x26 = 0;
+    w24 = 0;
+    struct Block_literal_msx block7;
+    block7.isa = &_NSConcreteStackBlock;
+    block7.flags = reusedBlockFlags;
+    block7.reserved = 0;
+    block7.invoke = (BlockInvoke)0x10009cb98;
+    block7.descriptor = &block_descriptor_7;
+    block7.captured_message = message;
+    block7.captured_self = self;
+    block7.captured_xxx = x25;
+    x27 = &block7;
     goto jump_B_124;
 
 Msg_Delete: // 0x10009becc
