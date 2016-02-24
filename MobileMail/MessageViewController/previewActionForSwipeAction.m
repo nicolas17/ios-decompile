@@ -232,17 +232,7 @@ L2: // 0x10009bdd8
 
     // 0x10009bdf4
     switch (x8) {
-        case 0: goto Msg_Move;      // 0x10009be08
-        case 1: goto jump_B_124;    // 0x10009c2f8
-        case 2: goto jump_B_124;    // 0x10009c2f8
-        case 3: goto Toggle_Notify; // 0x10009bfe4
-        case 4: goto jump_B_124;    // 0x10009c2f8
-        case 5: goto Msg_Reply;     // 0x10009c028
-        case 6: goto Msg_Forward;   // 0x10009c084
-        case 7: goto Msg_Junk;      // 0x10009c0f8
-    }
-
-Msg_Move: // 0x10009be08
+    case 0:
     if (!swipe) {
         title = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
     } else {
@@ -261,9 +251,9 @@ Msg_Move: // 0x10009be08
     block7.captured_self = self;
     block7.captured_xxx = x25;
     handler = &block7;
-    goto jump_B_124;
+    break;
 
-Toggle_Notify: // 0x10009bfe4
+    case 3:
     x23 = [message conversationFlags];
     x25 = x23 & 1; //potentially useless?
     if ((w23 & 1) != 0) {
@@ -285,9 +275,9 @@ Toggle_Notify: // 0x10009bfe4
     w8 = w25 ^ 0x1;
     block8.captured_boolUnk = w8;
     handler = &block8;
-    goto jump_B_124;
+    break;
 
-Msg_Reply: // 0x10009c028
+    case 5:
     x23 = [message canReplyAll];
     if (w23 == 0) {
         title = NSLocalizedStringFromTable(@"REPLY", @"Main", nil);
@@ -309,9 +299,9 @@ Msg_Reply: // 0x10009c028
     block9.captured_message = message;
     block9.captured_ulongUnk = x8; // ?!
     handler = &block9;
-    goto jump_B_124;
+    break;
 
-Msg_Forward: // 0x10009c084
+    case 6:
     title = NSLocalizedStringFromTable(@"FORWARD", @"Main", nil);
     x26 = 0;
     w24 = 0;
@@ -324,9 +314,9 @@ Msg_Forward: // 0x10009c084
     block4.captured_self = self;
     block4.captured_message = message;
     handler = &block4;
-    goto jump_B_124;
+    break;
 
-Msg_Junk: // 0x10009c0f8
+    case 7:
     title = NSLocalizedStringFromTable(@"MARK_EMAIL_JUNK", @"Main", nil);
     x26 = 0;
     w24 = 0;
@@ -339,6 +329,8 @@ Msg_Junk: // 0x10009c0f8
     block5.captured_self = self;
     block5.captured_message = message;
     handler = &block5;
+    break;
+    }
     goto jump_B_124;
 
 Toggle_Read: // 0x10009be44
