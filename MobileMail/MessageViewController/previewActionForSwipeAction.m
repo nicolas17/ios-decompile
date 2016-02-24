@@ -198,9 +198,9 @@ static struct Block_descriptor block_descriptor_9 = {
     switch (action) {
     case 0: return nil;
 
-    case 2:
-        x0 = [message messageFlags];
-        x24 = x0 & 0x1;
+    case 2: {
+        unsigned long long messageFlags = [message messageFlags];
+        x24 = messageFlags & 0x1;
         if (!swipe) {
             if (x24 == 0) {
                 title = NSLocalizedStringFromTable(@"MARK_EMAIL_AS_READ", @"Main", nil);
@@ -225,6 +225,7 @@ static struct Block_descriptor block_descriptor_9 = {
         block6.captured_message = message;
         handler = &block6;
         break;
+    }
 
     case 3:
         x23 = [message messageFlags];
