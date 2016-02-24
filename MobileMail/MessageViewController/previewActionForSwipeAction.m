@@ -233,103 +233,103 @@ L2: // 0x10009bdd8
     // 0x10009bdf4
     switch (x8) {
     case 0:
-    if (!swipe) {
-        title = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
-    } else {
-        title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MOVE", @"Main-OrbHW", nil);
-    }
+        if (!swipe) {
+            title = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
+        } else {
+            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MOVE", @"Main-OrbHW", nil);
+        }
 
-    x26 = 0;
-    w24 = 0;
-    struct Block_literal_msx block7;
-    block7.isa = &_NSConcreteStackBlock;
-    block7.flags = reusedBlockFlags;
-    block7.reserved = 0;
-    block7.invoke = (BlockInvoke)0x10009cb98;
-    block7.descriptor = &block_descriptor_7;
-    block7.captured_message = message;
-    block7.captured_self = self;
-    block7.captured_xxx = x25;
-    handler = &block7;
-    break;
+        x26 = 0;
+        w24 = 0;
+        struct Block_literal_msx block7;
+        block7.isa = &_NSConcreteStackBlock;
+        block7.flags = reusedBlockFlags;
+        block7.reserved = 0;
+        block7.invoke = (BlockInvoke)0x10009cb98;
+        block7.descriptor = &block_descriptor_7;
+        block7.captured_message = message;
+        block7.captured_self = self;
+        block7.captured_xxx = x25;
+        handler = &block7;
+        break;
 
     case 3:
-    x23 = [message conversationFlags];
-    x25 = x23 & 1; //potentially useless?
-    if ((w23 & 1) != 0) {
-        title = NSLocalizedStringFromTable(@"NOTIFY_ME_STOP", @"Main", nil);
-    } else {
-        title = NSLocalizedStringFromTable(@"NOTIFY_ME_ELLIPSIS", @"Main", nil);
-    }
+        x23 = [message conversationFlags];
+        x25 = x23 & 1; //potentially useless?
+        if ((w23 & 1) != 0) {
+            title = NSLocalizedStringFromTable(@"NOTIFY_ME_STOP", @"Main", nil);
+        } else {
+            title = NSLocalizedStringFromTable(@"NOTIFY_ME_ELLIPSIS", @"Main", nil);
+        }
 
-    x26 = 0;
-    w24 = 0;
-    struct Block_literal_smb block8;
-    block8.isa = &_NSConcreteStackBlock;
-    block8.flags = reusedBlockFlags;
-    block8.reserved = 0;
-    block8.invoke = (BlockInvoke)0x10009cce8;
-    block8.descriptor = &block_descriptor_8;
-    block8.captured_self = self;
-    block8.captured_message = message;
-    w8 = w25 ^ 0x1;
-    block8.captured_boolUnk = w8;
-    handler = &block8;
-    break;
+        x26 = 0;
+        w24 = 0;
+        struct Block_literal_smb block8;
+        block8.isa = &_NSConcreteStackBlock;
+        block8.flags = reusedBlockFlags;
+        block8.reserved = 0;
+        block8.invoke = (BlockInvoke)0x10009cce8;
+        block8.descriptor = &block_descriptor_8;
+        block8.captured_self = self;
+        block8.captured_message = message;
+        w8 = w25 ^ 0x1;
+        block8.captured_boolUnk = w8;
+        handler = &block8;
+        break;
 
     case 5:
-    x23 = [message canReplyAll];
-    if (w23 == 0) {
-        title = NSLocalizedStringFromTable(@"REPLY", @"Main", nil);
-        x8 = 0;
-    } else {
-        title = NSLocalizedStringFromTable(@"REPLY_ALL", @"Main", nil);
-        w8 = 0x1;
-    }
+        x23 = [message canReplyAll];
+        if (w23 == 0) {
+            title = NSLocalizedStringFromTable(@"REPLY", @"Main", nil);
+            x8 = 0;
+        } else {
+            title = NSLocalizedStringFromTable(@"REPLY_ALL", @"Main", nil);
+            w8 = 0x1;
+        }
 
-    x26 = 0;
-    w24 = 0;
-    struct Block_literal_sml block9;
-    block9.isa = &_NSConcreteStackBlock;
-    block9.flags = reusedBlockFlags;
-    block9.reserved = 0;
-    block9.invoke = (BlockInvoke)0x10009cd6c;
-    block9.descriptor = &block_descriptor_9;
-    block9.captured_self = self;
-    block9.captured_message = message;
-    block9.captured_ulongUnk = x8; // ?!
-    handler = &block9;
-    break;
+        x26 = 0;
+        w24 = 0;
+        struct Block_literal_sml block9;
+        block9.isa = &_NSConcreteStackBlock;
+        block9.flags = reusedBlockFlags;
+        block9.reserved = 0;
+        block9.invoke = (BlockInvoke)0x10009cd6c;
+        block9.descriptor = &block_descriptor_9;
+        block9.captured_self = self;
+        block9.captured_message = message;
+        block9.captured_ulongUnk = x8; // ?!
+        handler = &block9;
+        break;
 
     case 6:
-    title = NSLocalizedStringFromTable(@"FORWARD", @"Main", nil);
-    x26 = 0;
-    w24 = 0;
-    struct Block_literal_sm block4; // at sp+0x38
-    block4.isa = &_NSConcreteStackBlock;
-    block4.flags = reusedBlockFlags;
-    block4.reserved = 0;
-    block4.invoke = (BlockInvoke)0x10009cdf4;
-    block4.descriptor = &block_descriptor_4;
-    block4.captured_self = self;
-    block4.captured_message = message;
-    handler = &block4;
-    break;
+        title = NSLocalizedStringFromTable(@"FORWARD", @"Main", nil);
+        x26 = 0;
+        w24 = 0;
+        struct Block_literal_sm block4; // at sp+0x38
+        block4.isa = &_NSConcreteStackBlock;
+        block4.flags = reusedBlockFlags;
+        block4.reserved = 0;
+        block4.invoke = (BlockInvoke)0x10009cdf4;
+        block4.descriptor = &block_descriptor_4;
+        block4.captured_self = self;
+        block4.captured_message = message;
+        handler = &block4;
+        break;
 
     case 7:
-    title = NSLocalizedStringFromTable(@"MARK_EMAIL_JUNK", @"Main", nil);
-    x26 = 0;
-    w24 = 0;
-    struct Block_literal_sm block5; //at sp+0x8
-    block5.isa = &_NSConcreteStackBlock;
-    block5.flags = reusedBlockFlags;
-    block5.reserved = 0;
-    block5.invoke = (BlockInvoke)0x10009ce7c;
-    block5.descriptor = &block_descriptor_5;
-    block5.captured_self = self;
-    block5.captured_message = message;
-    handler = &block5;
-    break;
+        title = NSLocalizedStringFromTable(@"MARK_EMAIL_JUNK", @"Main", nil);
+        x26 = 0;
+        w24 = 0;
+        struct Block_literal_sm block5; //at sp+0x8
+        block5.isa = &_NSConcreteStackBlock;
+        block5.flags = reusedBlockFlags;
+        block5.reserved = 0;
+        block5.invoke = (BlockInvoke)0x10009ce7c;
+        block5.descriptor = &block_descriptor_5;
+        block5.captured_self = self;
+        block5.captured_message = message;
+        handler = &block5;
+        break;
     }
     goto jump_B_124;
 
