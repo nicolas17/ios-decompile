@@ -242,56 +242,6 @@ L2: // 0x10009bdd8
         case 7: goto Msg_Junk;      // 0x10009c0f8
     }
 
-Toggle_Read: // 0x10009be44
-    x0 = [message messageFlags];
-    x24 = x0 & 0x1;
-    if (!swipe) {
-        if (x24 == 0) {
-            title = NSLocalizedStringFromTable(@"MARK_EMAIL_AS_READ", @"Main", nil);
-        } else {
-            title = NSLocalizedStringFromTable(@"MARK_EMAIL_UNREAD", @"Main", nil);
-        }
-    } else {
-        if (!x24) {
-            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_READ", @"Main-OrbHW", nil);
-        } else {
-            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_UNREAD", @"Main-OrbHW", nil);
-        }
-    }
-    x26 = 0;
-    struct Block_literal_sm block6; //at sp+0x190
-    block6.isa = &_NSConcreteStackBlock;
-    block6.flags = reusedBlockFlags;
-    block6.reserved = 0;
-    block6.invoke = (BlockInvoke)0x10009c43c;
-    block6.descriptor = &block_descriptor_6;
-    block6.captured_self = self;
-    block6.captured_message = message;
-    handler = &block6;
-    goto jump_B_124;
-
-Toggle_Flag: // 0x10009be88
-    x23 = [message messageFlags];
-    x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
-
-    if ((w23 & (1<<4)) == 0) {
-        title = NSLocalizedStringFromTable(@"MARK_EMAIL_FLAGGED", @"Main", nil);
-    } else {
-        title = NSLocalizedStringFromTable(@"MARK_EMAIL_UNFLAGGED", @"Main", nil);
-    }
-
-    x26 = 0;
-    struct Block_literal_sm block2; // at sp+0x1c0
-    block2.isa = &_NSConcreteStackBlock;
-    block2.flags = reusedBlockFlags;
-    block2.reserved = 0;
-    block2.invoke = (BlockInvoke)0x10009c3bc;
-    block2.descriptor = &block_descriptor_2;
-    block2.captured_self = self;
-    block2.captured_message = message;
-    handler = &block2;
-    goto jump_B_124;
-
 Msg_Move: // 0x10009be08
     if (!swipe) {
         title = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
@@ -311,30 +261,6 @@ Msg_Move: // 0x10009be08
     block7.captured_self = self;
     block7.captured_xxx = x25;
     handler = &block7;
-    goto jump_B_124;
-
-Msg_Delete: // 0x10009becc
-    x26 = [self->_mall deleteMovesToTrashForMessage: message];
-    if (w26 == 0) {
-        title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_DELETE", @"Main-OrbHW", nil);
-    } else {
-        title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_TRASH", @"Main-OrbHW", nil);
-    }
-
-    x24 = 0;
-    struct Block_literal_smxsm block3; // at sp+0x150
-    block3.isa = &_NSConcreteStackBlock;
-    block3.flags = reusedBlockFlags;
-    block3.reserved = 0;
-    block3.invoke = (BlockInvoke)0x10009c4bc;
-    block3.descriptor = &block_descriptor_3;
-    block3.captured_self = self;
-    block3.captured_message = message;
-    block3.captured_xxx = x25;
-    block3.captured_swipe = swipe; // byte
-    block3.captured_movesToTrash = w26; // byte, from deleteMovesToTrashForMessage
-    handler = &block3;
-    w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
 
 Toggle_Notify: // 0x10009bfe4
@@ -413,6 +339,80 @@ Msg_Junk: // 0x10009c0f8
     block5.captured_self = self;
     block5.captured_message = message;
     handler = &block5;
+    goto jump_B_124;
+
+Toggle_Read: // 0x10009be44
+    x0 = [message messageFlags];
+    x24 = x0 & 0x1;
+    if (!swipe) {
+        if (x24 == 0) {
+            title = NSLocalizedStringFromTable(@"MARK_EMAIL_AS_READ", @"Main", nil);
+        } else {
+            title = NSLocalizedStringFromTable(@"MARK_EMAIL_UNREAD", @"Main", nil);
+        }
+    } else {
+        if (!x24) {
+            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_READ", @"Main-OrbHW", nil);
+        } else {
+            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_UNREAD", @"Main-OrbHW", nil);
+        }
+    }
+    x26 = 0;
+    struct Block_literal_sm block6; //at sp+0x190
+    block6.isa = &_NSConcreteStackBlock;
+    block6.flags = reusedBlockFlags;
+    block6.reserved = 0;
+    block6.invoke = (BlockInvoke)0x10009c43c;
+    block6.descriptor = &block_descriptor_6;
+    block6.captured_self = self;
+    block6.captured_message = message;
+    handler = &block6;
+    goto jump_B_124;
+
+Toggle_Flag: // 0x10009be88
+    x23 = [message messageFlags];
+    x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
+
+    if ((w23 & (1<<4)) == 0) {
+        title = NSLocalizedStringFromTable(@"MARK_EMAIL_FLAGGED", @"Main", nil);
+    } else {
+        title = NSLocalizedStringFromTable(@"MARK_EMAIL_UNFLAGGED", @"Main", nil);
+    }
+
+    x26 = 0;
+    struct Block_literal_sm block2; // at sp+0x1c0
+    block2.isa = &_NSConcreteStackBlock;
+    block2.flags = reusedBlockFlags;
+    block2.reserved = 0;
+    block2.invoke = (BlockInvoke)0x10009c3bc;
+    block2.descriptor = &block_descriptor_2;
+    block2.captured_self = self;
+    block2.captured_message = message;
+    handler = &block2;
+    goto jump_B_124;
+
+Msg_Delete: // 0x10009becc
+    x26 = [self->_mall deleteMovesToTrashForMessage: message];
+    if (w26 == 0) {
+        title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_DELETE", @"Main-OrbHW", nil);
+    } else {
+        title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_TRASH", @"Main-OrbHW", nil);
+    }
+
+    x24 = 0;
+    struct Block_literal_smxsm block3; // at sp+0x150
+    block3.isa = &_NSConcreteStackBlock;
+    block3.flags = reusedBlockFlags;
+    block3.reserved = 0;
+    block3.invoke = (BlockInvoke)0x10009c4bc;
+    block3.descriptor = &block_descriptor_3;
+    block3.captured_self = self;
+    block3.captured_message = message;
+    block3.captured_xxx = x25;
+    block3.captured_swipe = swipe; // byte
+    block3.captured_movesToTrash = w26; // byte, from deleteMovesToTrashForMessage
+    handler = &block3;
+    w26 = 0x2; // orr w26, wzr, #0x2
     goto jump_B_124;
 
 jump_B_124: // 0x10009c2f8
