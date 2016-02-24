@@ -33,10 +33,18 @@ class BasicBlock:
         self.color = None
         self.is_last = False
 
+def csv(s):
+    return s.split(",")
+
 argparser = argparse.ArgumentParser(description="Convert decompiled code into a control flow graph.")
 argparser.add_argument("filename", help="the source file to parse")
 argparser.add_argument("-v", "--verbose", help="print debugging messages", action="store_true")
 argparser.add_argument("-o", "--output", help="name of generated graphviz file (default: stdout)")
+argparser.add_argument("--collapse", help="list of block labels to collapse (hide code)",
+        type=csv,
+        default=[],
+        metavar="block1,block2,...",
+        dest="collapsed_blocks")
 args = argparser.parse_args()
 
 def log(msg):
@@ -139,7 +147,10 @@ def graphviz_escape(text):
     return text
 
 for block in blocks:
-    block.content = "["+block.label+"]\n"+block.content.lstrip('\n').rstrip()+'\n'
+    if block.label in args.collapsed_blocks:
+        block.content = "["+block.label+"]";
+    else:
+        block.content = "["+block.label+"]\n"+block.content.lstrip('\n').rstrip()+'\n'
 
 for i, block in enumerate(blocks):
     if not any(block.label == link[0] for link in links) and not block.is_last:
