@@ -272,10 +272,10 @@ static struct Block_descriptor block_descriptor_9 = {
 
     case 5:
         x26 = [self->_mall deleteMovesToTrashForMessage: message];
-        if (w26 == 0) {
-            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_DELETE", @"Main-OrbHW", nil);
-        } else {
+        if (w26) {
             title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_TRASH", @"Main-OrbHW", nil);
+        } else {
+            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_DELETE", @"Main-OrbHW", nil);
         }
 
         x24 = 0;
