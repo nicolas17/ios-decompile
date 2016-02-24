@@ -181,9 +181,6 @@ static struct Block_descriptor block_descriptor_9 = {
     int64_t x5,x8,x20,x23,x24,x25;
     int32_t w8,w23,w24,w25;
 
-    NSString* title;
-    void* handler; // this is a block pointer
-
     UIViewController* parentViewControllerThing = [self presentingViewController];
     if (parentViewControllerThing == 0) {
         parentViewControllerThing = [(MailAppController*)[UIApplication sharedApplication] sceneController];
@@ -192,8 +189,9 @@ static struct Block_descriptor block_descriptor_9 = {
     // reusedBlockFlags is in w28, apparently throughout the function
     int reusedBlockFlags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_SIGNATURE | BLOCK_HAS_EXTENDED_LAYOUT;
 
-    w24 = handler = 0;
-    title = nil;
+    w24 = 0;
+    NSString* title = 0;
+    void* handler = 0; // block pointer
     UIPreviewActionStyle style = UIPreviewActionStyleDefault;
 
     switch (action) {
