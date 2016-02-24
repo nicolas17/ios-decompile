@@ -251,7 +251,12 @@ static struct Block_descriptor block_descriptor_9 = {
         handler = &block2;
         break;
 
-    case 4: goto L1;          // 0x10009bd4c
+    case 4:
+        x23 = w24 = x26 = handler = 0;
+        title = nil;
+        x8 = action - 4; // 0
+        goto L2p;
+
     case 5:
         x26 = [self->_mall deleteMovesToTrashForMessage: message];
         if (w26 == 0) {
