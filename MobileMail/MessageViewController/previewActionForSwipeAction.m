@@ -191,8 +191,6 @@ static struct Block_descriptor block_descriptor_9 = {
 
     // reusedBlockFlags is in w28, apparently throughout the function
     int reusedBlockFlags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_SIGNATURE | BLOCK_HAS_EXTENDED_LAYOUT;
-    x8 = action - 5;
-    if (action > 5) goto L1;
 
     switch (action) {
     case 0: return nil;
@@ -280,10 +278,19 @@ static struct Block_descriptor block_descriptor_9 = {
         handler = &block3;
         w26 = 0x2; // orr w26, wzr, #0x2
         break;
+
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+        goto L1;
     }
     goto jump_B_124;
 
 L1: // 0x10009bd4c
+    x8 = action - 5;
     if ((unsigned)x8 > 1) goto L2;
 
     //0x10009bd54
