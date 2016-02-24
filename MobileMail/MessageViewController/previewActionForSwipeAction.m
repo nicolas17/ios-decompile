@@ -249,8 +249,7 @@ static struct Block_descriptor block_descriptor_9 = {
         break;
 
     case 4:
-        x8 = action - 4; // 0
-        goto L2p;
+        goto L2;
 
     case 5:
         x26 = [self->_mall deleteMovesToTrashForMessage: message];
@@ -303,12 +302,8 @@ static struct Block_descriptor block_descriptor_9 = {
     }
     goto jump_B_124;
 
-L2: // 0x10009bdd8
-    x8 = action - 4;
-    if ((unsigned)x8 > 7) goto jump_B_124;
-
-L2p: // 0x10009bdf4
-    switch (x8) {
+L2:
+    switch (action-4) {
     case 0:
         if (!swipe) {
             title = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
