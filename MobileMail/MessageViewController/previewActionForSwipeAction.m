@@ -178,8 +178,8 @@ static struct Block_descriptor block_descriptor_9 = {
     x21 = message
     x20 = swipe
     */
-    int64_t x0,x5,x8,x20,x23,x24,x25;
-    int32_t w8,w20,w23,w24,w25;
+    int64_t x5,x8,x20,x23,x24,x25;
+    int32_t w8,w23,w24,w25;
 
     NSString* title;
     void* handler; // this is a block pointer
