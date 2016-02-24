@@ -181,6 +181,8 @@ static struct Block_descriptor block_descriptor_9 = {
     int64_t x0,x5,x8,x20,x23,x24,x25,x26,x27;
     int32_t w8,w20,w23,w24,w25,w26;
 
+    NSString* title;
+
     x25 = [self presentingViewController];
     if (x25 == 0) {
         x25 = [(MailAppController*)[UIApplication sharedApplication] sceneController];
@@ -204,7 +206,7 @@ L1: // 0x10009bd4c
     if ((unsigned)x8 > 1) goto L2;
 
     //0x10009bd54
-    x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_ARCHIVE", @"Main-OrbHW", nil);
+    title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_ARCHIVE", @"Main-OrbHW", nil);
 
     w24 = 0;
     struct Block_literal_smxs block1;
@@ -223,6 +225,7 @@ L1: // 0x10009bd4c
 
 L2: // 0x10009bdd8
     x23 = w24 = x26 = x27 = 0;
+    title = nil;
     x8 = action - 4;
     if ((unsigned)x8 > 7) goto jump_B_124;
 
@@ -243,15 +246,15 @@ Toggle_Read: // 0x10009be44
     x24 = x0 & 0x1;
     if (!swipe) {
         if (x24 == 0) {
-            x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_AS_READ", @"Main", nil);
+            title = NSLocalizedStringFromTable(@"MARK_EMAIL_AS_READ", @"Main", nil);
         } else {
-            x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_UNREAD", @"Main", nil);
+            title = NSLocalizedStringFromTable(@"MARK_EMAIL_UNREAD", @"Main", nil);
         }
     } else {
         if (!x24) {
-            x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_READ", @"Main-OrbHW", nil);
+            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_READ", @"Main-OrbHW", nil);
         } else {
-            x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_UNREAD", @"Main-OrbHW", nil);
+            title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_UNREAD", @"Main-OrbHW", nil);
         }
     }
     x26 = 0;
@@ -271,9 +274,9 @@ Toggle_Flag: // 0x10009be88
     x24 = (x23 >> 4) & 1; // ubfx x24, x23, #0x4, #0x1; is this useless?
 
     if ((w23 & (1<<4)) == 0) {
-        x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_FLAGGED", @"Main", nil);
+        title = NSLocalizedStringFromTable(@"MARK_EMAIL_FLAGGED", @"Main", nil);
     } else {
-        x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_UNFLAGGED", @"Main", nil);
+        title = NSLocalizedStringFromTable(@"MARK_EMAIL_UNFLAGGED", @"Main", nil);
     }
 
     x26 = 0;
@@ -290,9 +293,9 @@ Toggle_Flag: // 0x10009be88
 
 Msg_Move: // 0x10009be08
     if (!swipe) {
-        x23 = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
+        title = NSLocalizedStringFromTable(@"MOVE_SINGULAR", @"Main", nil);
     } else {
-        x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MOVE", @"Main-OrbHW", nil);
+        title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MOVE", @"Main-OrbHW", nil);
     }
 
     x26 = 0;
@@ -312,9 +315,9 @@ Msg_Move: // 0x10009be08
 Msg_Delete: // 0x10009becc
     x26 = [self->_mall deleteMovesToTrashForMessage: message];
     if (w26 == 0) {
-        x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_DELETE", @"Main-OrbHW", nil);
+        title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_DELETE", @"Main-OrbHW", nil);
     } else {
-        x23 = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_TRASH", @"Main-OrbHW", nil);
+        title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_TRASH", @"Main-OrbHW", nil);
     }
 
     x24 = 0;
@@ -337,9 +340,9 @@ Toggle_Notify: // 0x10009bfe4
     x23 = [message conversationFlags];
     x25 = x23 & 1; //potentially useless?
     if ((w23 & 1) != 0) {
-        x23 = NSLocalizedStringFromTable(@"NOTIFY_ME_STOP", @"Main", nil);
+        title = NSLocalizedStringFromTable(@"NOTIFY_ME_STOP", @"Main", nil);
     } else {
-        x23 = NSLocalizedStringFromTable(@"NOTIFY_ME_ELLIPSIS", @"Main", nil);
+        title = NSLocalizedStringFromTable(@"NOTIFY_ME_ELLIPSIS", @"Main", nil);
     }
 
     x26 = 0;
@@ -360,10 +363,10 @@ Toggle_Notify: // 0x10009bfe4
 Msg_Reply: // 0x10009c028
     x23 = [message canReplyAll];
     if (w23 == 0) {
-        x23 = NSLocalizedStringFromTable(@"REPLY", @"Main", nil);
+        title = NSLocalizedStringFromTable(@"REPLY", @"Main", nil);
         x8 = 0;
     } else {
-        x23 = NSLocalizedStringFromTable(@"REPLY_ALL", @"Main", nil);
+        title = NSLocalizedStringFromTable(@"REPLY_ALL", @"Main", nil);
         w8 = 0x1;
     }
 
@@ -382,7 +385,7 @@ Msg_Reply: // 0x10009c028
     goto jump_B_124;
 
 Msg_Forward: // 0x10009c084
-    x23 = NSLocalizedStringFromTable(@"FORWARD", @"Main", nil);
+    title = NSLocalizedStringFromTable(@"FORWARD", @"Main", nil);
     x26 = 0;
     w24 = 0;
     struct Block_literal_sm block4; // at sp+0x38
@@ -397,7 +400,7 @@ Msg_Forward: // 0x10009c084
     goto jump_B_124;
 
 Msg_Junk: // 0x10009c0f8
-    x23 = NSLocalizedStringFromTable(@"MARK_EMAIL_JUNK", @"Main", nil);
+    title = NSLocalizedStringFromTable(@"MARK_EMAIL_JUNK", @"Main", nil);
     x26 = 0;
     w24 = 0;
     struct Block_literal_sm block5; //at sp+0x8
@@ -419,7 +422,7 @@ jump_B_124: // 0x10009c2f8
         x20 = [MFSwipeActionUtilities defaultColorForSwipeAction: action];
         x5 = [MFSwipeActionUtilities defaultIconForSwipeAction: action alternate: x24];
     }
-    return [UIPreviewAction _actionWithTitle:x23 style:x26 color:x20 image:x5 handler:x27];
+    return [UIPreviewAction _actionWithTitle:title style:x26 color:x20 image:x5 handler:x27];
 }
 
 @end
