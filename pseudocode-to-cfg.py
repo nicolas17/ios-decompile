@@ -18,13 +18,13 @@
 
 import sys
 import re
+import argparse
 
 def skip_past(lineit, prefix):
     while True:
         l = next(lineit)
         if l.startswith(prefix):
             break
-
 
 class BasicBlock:
     def __init__(self, label):
@@ -33,7 +33,15 @@ class BasicBlock:
         self.color = None
         self.is_last = False
 
-filename = sys.argv[1]
+argparser = argparse.ArgumentParser(description="Convert decompiled code into a control flow graph.")
+argparser.add_argument("filename", help="the source file to parse")
+argparser.add_argument("-v", "--verbose", help="print debugging messages", action="store_true")
+argparser.add_argument("-o", "--output", help="name of generated graphviz file (default: stdout)")
+args = argparser.parse_args()
+
+def log(msg):
+    if args.verbose:
+        print(msg, file=sys.stderr)
 
 blocks = []
 blocks_by_label = {}
@@ -53,7 +61,7 @@ STATE_IN_SWITCH = object()
 
 state = None
 
-with open(filename, "r") as fp:
+with open(args.filename, "r") as fp:
     lineit = iter(fp)
     skip_past(lineit, "@implementation ")
     skip_past(lineit, "-(")
@@ -73,7 +81,7 @@ with open(filename, "r") as fp:
         if m:
             assert state in (STATE_IN_BLOCK, STATE_OUTSIDE)
             state = STATE_IN_BLOCK
-            print("Found label {}".format(m.group(1)))
+            log("Found label {}".format(m.group(1)))
             current_block = start_new_block(m.group(1))
             current_block.content += line
             continue
@@ -82,7 +90,7 @@ with open(filename, "r") as fp:
         if m:
             assert state == STATE_IN_BLOCK
             state = STATE_OUTSIDE
-            print("Found goto {}".format(m.group(1)))
+            log("Found goto {}".format(m.group(1)))
             current_block.content += line
             links.append((current_block.label, m.group(1), "goto"))
             continue
@@ -90,7 +98,7 @@ with open(filename, "r") as fp:
         m=re.match(r'    if\b.*\bgoto ([A-Za-z_][A-Za-z0-9_]*);$', line)
         if m:
             assert state == STATE_IN_BLOCK
-            print("Found conditional goto {}".format(m.group(1)))
+            log("Found conditional goto {}".format(m.group(1)))
             current_block.content += line
             new_block = start_new_block()
             links.append((current_block.label, m.group(1), "true"))
@@ -102,14 +110,14 @@ with open(filename, "r") as fp:
         if m:
             assert state == STATE_IN_BLOCK
             state = STATE_IN_SWITCH
-            print("Found switch! Condition is {}".format(m.group(1)))
+            log("Found switch! Condition is {}".format(m.group(1)))
             current_block.content += line
             continue
 
         m=re.match(r'\s+case\s+(\d+):\s*goto\s+([A-Za-z_][A-Za-z0-9_]*);', line)
         if m:
             assert state == STATE_IN_SWITCH
-            print("Found case! If {} goto {}".format(m.group(1), m.group(2)))
+            log("Found case! If {} goto {}".format(m.group(1), m.group(2)))
             links.append((current_block.label, m.group(2), m.group(1)))
             current_block.content += line
             continue
@@ -137,20 +145,24 @@ for i, block in enumerate(blocks):
     if not any(block.label == link[0] for link in links) and not block.is_last:
         links.append((block.label, blocks[i+1].label, "fallthru"))
 
-with open("cfg.dot", "w") as f:
-    f.write("""
-    digraph {
-        node[shape=rectangle fontname=monospace];
-    """)
-    for block in blocks:
-        f.write('    "{}" [label="{}"'.format(block.label, graphviz_escape(block.content)))
-        if block.color is not None:
-            f.write(' style=filled fillcolor="{}"'.format(graphviz_escape(block.color)))
-        f.write(']\n')
-    for bfrom, bto, linklabel in links:
-        f.write('    "{}" -> "{}" [taillabel="{}"]\n'.format(
-            graphviz_escape(bfrom),
-            graphviz_escape(bto),
-            graphviz_escape(linklabel)
-        ))
-    f.write("}\n")
+if args.output:
+    outfile = open(args.output, "w")
+else:
+    outfile = sys.stdout
+
+outfile.write("""
+digraph {
+    node[shape=rectangle fontname=monospace];
+""")
+for block in blocks:
+    outfile.write('    "{}" [label="{}"'.format(block.label, graphviz_escape(block.content)))
+    if block.color is not None:
+        outfile.write(' style=filled fillcolor="{}"'.format(graphviz_escape(block.color)))
+    outfile.write(']\n')
+for bfrom, bto, linklabel in links:
+    outfile.write('    "{}" -> "{}" [taillabel="{}"]\n'.format(
+        graphviz_escape(bfrom),
+        graphviz_escape(bto),
+        graphviz_escape(linklabel)
+    ))
+outfile.write("}\n")
