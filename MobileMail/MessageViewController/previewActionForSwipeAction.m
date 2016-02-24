@@ -178,8 +178,8 @@ static struct Block_descriptor block_descriptor_9 = {
     x21 = message
     x20 = swipe
     */
-    int64_t x0,x5,x8,x20,x23,x24,x25,x26;
-    int32_t w8,w20,w23,w24,w25,w26;
+    int64_t x0,x5,x8,x20,x23,x24,x25;
+    int32_t w8,w20,w23,w24,w25;
 
     NSString* title;
     void* handler; // this is a block pointer
@@ -192,8 +192,9 @@ static struct Block_descriptor block_descriptor_9 = {
     // reusedBlockFlags is in w28, apparently throughout the function
     int reusedBlockFlags = BLOCK_HAS_COPY_DISPOSE | BLOCK_HAS_SIGNATURE | BLOCK_HAS_EXTENDED_LAYOUT;
 
-    w24 = x26 = handler = 0;
+    w24 = handler = 0;
     title = nil;
+    UIPreviewActionStyle style = UIPreviewActionStyleDefault;
 
     switch (action) {
     case 0: return nil;
@@ -214,7 +215,7 @@ static struct Block_descriptor block_descriptor_9 = {
                 title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MARK_AS_UNREAD", @"Main-OrbHW", nil);
             }
         }
-        x26 = 0;
+        style = UIPreviewActionStyleDefault;
         struct Block_literal_sm block6; //at sp+0x190
         block6.isa = &_NSConcreteStackBlock;
         block6.flags = reusedBlockFlags;
@@ -237,7 +238,7 @@ static struct Block_descriptor block_descriptor_9 = {
             title = NSLocalizedStringFromTable(@"MARK_EMAIL_UNFLAGGED", @"Main", nil);
         }
 
-        x26 = 0;
+        style = UIPreviewActionStyleDefault;
         struct Block_literal_sm block2; // at sp+0x1c0
         block2.isa = &_NSConcreteStackBlock;
         block2.flags = reusedBlockFlags;
@@ -256,7 +257,7 @@ static struct Block_descriptor block_descriptor_9 = {
             title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_MOVE", @"Main-OrbHW", nil);
         }
 
-        x26 = 0;
+        style = UIPreviewActionStyleDefault;
         w24 = 0;
         struct Block_literal_msx block7;
         block7.isa = &_NSConcreteStackBlock;
@@ -291,7 +292,7 @@ static struct Block_descriptor block_descriptor_9 = {
         block3.captured_swipe = swipe; // byte
         block3.captured_movesToTrash = movesToTrash; // byte
         handler = &block3;
-        w26 = 0x2; // orr w26, wzr, #0x2
+        style = UIPreviewActionStyleDestructive;
         break;
     }
 
@@ -310,7 +311,7 @@ static struct Block_descriptor block_descriptor_9 = {
         block1.captured_xxx = parentViewControllerThing;
         block1.captured_swipe = swipe; // 8-bit
         handler = &block1;
-        w26 = 0x2; // orr w26, wzr, #0x2
+        style = UIPreviewActionStyleDestructive;
         break;
 
     case 7:
@@ -322,7 +323,7 @@ static struct Block_descriptor block_descriptor_9 = {
             title = NSLocalizedStringFromTable(@"NOTIFY_ME_ELLIPSIS", @"Main", nil);
         }
 
-        x26 = 0;
+        style = UIPreviewActionStyleDefault;
         w24 = 0;
         struct Block_literal_smb block8;
         block8.isa = &_NSConcreteStackBlock;
@@ -347,7 +348,7 @@ static struct Block_descriptor block_descriptor_9 = {
             w8 = 0x1;
         }
 
-        x26 = 0;
+        style = UIPreviewActionStyleDefault;
         w24 = 0;
         struct Block_literal_sml block9;
         block9.isa = &_NSConcreteStackBlock;
@@ -363,7 +364,7 @@ static struct Block_descriptor block_descriptor_9 = {
 
     case 10:
         title = NSLocalizedStringFromTable(@"FORWARD", @"Main", nil);
-        x26 = 0;
+        style = UIPreviewActionStyleDefault;
         w24 = 0;
         struct Block_literal_sm block4; // at sp+0x38
         block4.isa = &_NSConcreteStackBlock;
@@ -378,7 +379,7 @@ static struct Block_descriptor block_descriptor_9 = {
 
     case 11:
         title = NSLocalizedStringFromTable(@"MARK_EMAIL_JUNK", @"Main", nil);
-        x26 = 0;
+        style = UIPreviewActionStyleDefault;
         w24 = 0;
         struct Block_literal_sm block5; //at sp+0x8
         block5.isa = &_NSConcreteStackBlock;
@@ -399,7 +400,7 @@ static struct Block_descriptor block_descriptor_9 = {
         x20 = [MFSwipeActionUtilities defaultColorForSwipeAction: action];
         x5 = [MFSwipeActionUtilities defaultIconForSwipeAction: action alternate: x24];
     }
-    return [UIPreviewAction _actionWithTitle:title style:x26 color:x20 image:x5 handler:handler];
+    return [UIPreviewAction _actionWithTitle:title style:style color:x20 image:x5 handler:handler];
 }
 
 @end
