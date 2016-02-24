@@ -301,7 +301,7 @@ L2: // 0x10009bdd8
     x8 = action - 4;
     if ((unsigned)x8 > 7) goto jump_B_124;
 
-    // 0x10009bdf4
+L2p: // 0x10009bdf4
     switch (x8) {
     case 0:
         if (!swipe) {
