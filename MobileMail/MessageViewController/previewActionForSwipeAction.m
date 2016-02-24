@@ -277,6 +277,7 @@ static struct Block_descriptor block_descriptor_9 = {
         break;
 
     case 6:
+        goto L1p;
     case 7:
     case 8:
     case 9:
@@ -288,9 +289,9 @@ static struct Block_descriptor block_descriptor_9 = {
 
 L1: // 0x10009bd4c
     x8 = action - 5;
-    if ((unsigned)x8 > 1) goto L2;
+    goto L2;
 
-    //0x10009bd54
+L1p: //0x10009bd54
     title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_ARCHIVE", @"Main-OrbHW", nil);
 
     w24 = 0;
