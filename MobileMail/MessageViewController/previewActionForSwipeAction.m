@@ -277,17 +277,6 @@ static struct Block_descriptor block_descriptor_9 = {
         break;
 
     case 6:
-        goto L1p;
-    case 7:
-    case 8:
-    case 9:
-    case 10:
-    case 11:
-        goto L2;
-    }
-    goto jump_B_124;
-
-L1p: //0x10009bd54
     title = NSLocalizedStringFromTable(@"PREVIEW_SWIPE_ARCHIVE", @"Main-OrbHW", nil);
 
     w24 = 0;
@@ -303,6 +292,15 @@ L1p: //0x10009bd54
     block1.captured_swipe = swipe; // 8-bit
     handler = &block1;
     w26 = 0x2; // orr w26, wzr, #0x2
+    break;
+
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+        goto L2;
+    }
     goto jump_B_124;
 
 L2: // 0x10009bdd8
